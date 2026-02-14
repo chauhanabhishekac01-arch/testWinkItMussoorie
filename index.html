@@ -21,7 +21,7 @@
             width: 100%; height: 4rem; border-bottom: 1px solid #ccc; 
             display: flex; justify-content: space-between; align-items: center; 
             position: sticky; top: 0; background: rgb(206, 72, 206); 
-            z-index: 2000; /* Ensure header is always on top */
+            z-index: 2000; 
             padding: 0 5%;
         }
 
@@ -70,7 +70,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        
         }
         .collection-grid { 
             display: grid; 
@@ -92,10 +91,10 @@
         .image-preview-card { border: 0.5px solid #fff; aspect-ratio: 1/1; }
         .image-preview-card img { width: 100%; height: 100%; display: block; object-fit: cover; border: 0.5px solid purple;}
 
-        /* --- PRODUCT SLIDER (STARTS BELOW HEADER) --- */
+        /* --- PRODUCT SLIDER --- */
         #product-slider {
             position: fixed; 
-            top: 4rem; /* Start after header height */
+            top: 4rem; 
             left: 0; 
             width: 90%; 
             height: calc(100svh - 4rem);
@@ -132,7 +131,6 @@
         }
         .card:hover{ box-shadow: -5px 0 25px rgba(0,0,0,0.5); transform: translateY(-10px); }
         
-        #producth2{ color: black; width: 100%; display: flex; justify-content: center; align-items: center; }
         .img-container { width: 100%; height: 120px; border-radius: 8px; overflow: hidden; margin-bottom: 10px; background: #f0f0f0; }
         .iimg { width: 100%; height: 100%; object-fit: cover; display: block; }
         
@@ -150,7 +148,7 @@
         .controls button:hover{ background: green; color: white; }
         .qty-btn { background: #ffeb3b !important; border: none !important; }
 
-        /* --- CHECKOUT SIDEBAR (STARTS BELOW HEADER) --- */
+        /* --- CHECKOUT SIDEBAR --- */
         #orderSidebar { 
             position: fixed; 
             top: 4rem; 
@@ -184,120 +182,23 @@
         .popup-images { display: flex; gap: 4px; margin-bottom: 6px; }
         .cart-popup img { width: 30px; height: 30px; object-fit: cover; border-radius: 4px; }
         .hidden { display: none !important; }
-        .about{
-            height: auto;
-            width: 100%;
-            border-radius: 25px;
-        }
-        .abox{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
-            align-items: center;
-            
-        }
-        .atext{
-            justify-self: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 0px clamp(1rem, 5vw, 5rem);
-            width: 96%;
-        }
-        .atext h1{
-            padding-bottom: 0px;
-            margin-bottom: 0px;
-        }
-        .atext p{
-            font-size: 1.2rem;
-            hyphens: auto;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            text-align: justify;
-            line-height: 1.5rem;
-        }
-        .atext button{
-            background-color: rgb(206, 72, 206);
-            height: 3rem;
-            width: clamp(8rem, 10vw, 10rem);
-            border-radius: 25px;
-            color: white;
-            font-size: clamp(1rem, 2vw, 2rem);
-            animation: move 1s linear infinite;
-        }
-        @keyframes move{
-            0%{
-                transform: translateY(-5px);
-            }
-            50%{
-                transform: translateY(0px);
-            }
-            100%{
-                transform: translateY(-5px);
-            }
-        }
-        .acc img{
-            height: 25px;
-            width: 25px;
-            
-        }
-        .acc{
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        .aimg{
-            justify-self: center;
-            width: max-content;
-            height: 80svh;
-            
-        }
-        .aimg img{
-            height: 100%;
-            width: clamp(22rem, 40vw, 40rem);
-            padding: 20px 0px;
-            border-radius: 60px;
-        }
-         .cbox{
-            margin-top: 2rem;
-            height: 50%;
-            width: 100%;
-            overflow: hidden;
-            border: 1px solid purple;
-            border-radius: 25px;
 
-        }
-        .cwrap{
-            height: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        .cimg{
-            height: clamp(5rem, 20vw,18rem);
-            width: clamp(5rem, 22vw,20rem);
-            border: 1px solid red;
-            border-radius: 25px;
-            box-shadow: 0 6px 15px rgba(17, 1, 9, 0.5);
-        }
-        .ctext{
-            text-align: center;
-            border: 1px solid red;
-            height: clamp(10rem, 20vw,18rem);
-            width: clamp(10rem, 22vw,20rem);
-            font-size: clamp(0.6rem, 1.5vw, 1.5rem);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            line-height: 0px;
-            box-shadow: 0 6px 15px rgba(17, 1, 9, 0.5);
-            border-radius: 25px;
-
-        }
-
+        .about{ height: auto; width: 100%; border-radius: 25px; }
+        .abox{ display: grid; grid-template-columns: repeat(auto-fit, minmax(370px, 1fr)); align-items: center; }
+        .atext{ justify-self: center; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 0px clamp(1rem, 5vw, 5rem); width: 96%; }
+        .atext h1{ padding-bottom: 0px; margin-bottom: 0px; }
+        .atext p{ font-size: 1.2rem; hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; text-align: justify; line-height: 1.5rem; }
+        .atext button{ background-color: rgb(206, 72, 206); height: 3rem; width: clamp(8rem, 10vw, 10rem); border-radius: 25px; color: white; font-size: clamp(1rem, 2vw, 2rem); animation: move 1s linear infinite; }
+        @keyframes move{ 0%{ transform: translateY(-5px); } 50%{ transform: translateY(0px); } 100%{ transform: translateY(-5px); } }
+        .aimg{ justify-self: center; width: max-content; height: 80svh; }
+        .aimg img{ height: 100%; width: clamp(22rem, 40vw, 40rem); padding: 20px 0px; border-radius: 60px; }
+        
+        .cbox{ margin-top: 2rem; height: 50%; width: 100%; overflow: hidden; border: 1px solid purple; border-radius: 25px; }
+        .cwrap{ height: 50%; width: 100%; display: flex; justify-content: space-evenly; align-items: center; }
+        .cimg{ height: clamp(5rem, 20vw,18rem); width: clamp(5rem, 22vw,20rem); border: 1px solid red; border-radius: 25px; box-shadow: 0 6px 15px rgba(17, 1, 9, 0.5); }
+        .ctext{ text-align: center; border: 1px solid red; height: clamp(10rem, 20vw,18rem); width: clamp(10rem, 22vw,20rem); font-size: clamp(0.6rem, 1.5vw, 1.5rem); display: flex; justify-content: center; align-items: center; flex-direction: column; line-height: 0px; box-shadow: 0 6px 15px rgba(17, 1, 9, 0.5); border-radius: 25px; }
+        .acc img{ height: 25px; width: 25px; }
+        .acc{ width: 100%; display: flex; justify-content: space-evenly; align-items: center; }
 
         @media (max-width: 768px) {
             .collection-grid { grid-template-columns: 1fr 1fr; }
@@ -354,25 +255,26 @@
             <button class="checkout-btn" onclick="confirmAndSend()"><p>🔒</p>Order via WhatsApp</button>
         </div>
     </div>
+
     <div class="about">
         <h1 class="heading">About Us</h1>
         <div class="abox">
             <div class="atext">
                 <h1>Wink It Mussoorie</h1>
                 <p>At Wink It, we understand that your time is valuable. Founded in 2026, our mission is to provide the Mussoorie community with a premium delivery service for food and essential goods.
-                    <b>From 8:00 AM until 11:30 PM</b>, our team is on the road to reach you within <b>30 to 60 minutes</b>. To ensure your complete satisfaction, we provide real-time updates; if your preferred product is unavailable, we will reach out to you directly to discuss suitable alternatives.
-                    Your convenience is our priority. For any assistance, please do not hesitate to reach out to our customer service team.</p>
-                <button >Contact</button>
+                    <b>From 8:00 AM until 11:30 PM</b>, our team is on the road to reach you within <b>30 to 60 minutes</b>. To ensure your complete satisfaction, we provide real-time updates; if your preferred product is unavailable, we will reach out to you directly to discuss suitable alternatives.</p>
+                <button>Contact</button>
             </div>
             <div class="aimg">
                 <img src="newlogo.png" alt="">
             </div>
         </div>
     </div>
-     <div>
+
+    <div>
         <div class="cbox">
             <div class="cwrap">
-                <a href="#hero"><img class="cimg" src="newlogo.png" alt=""></a>
+                <a href="#"><img class="cimg" src="newlogo.png" alt=""></a>
                 <div>
                     <div class="ctext">
                         <h1>Address</h1>
@@ -380,13 +282,12 @@
                         <h3>Mussoorie</h3>
                         <h3>Uttarakhand-248179</h3>
                         <h3>Contact: <a href="tel:7983427187">7983427187</a></h3>
-                    
-                    <div class="acc">
-                        <a href="https://www.instagram.com/"><img src="insta.jpg"></a>
-                    </div>
+                        <div class="acc">
+                            <a href="https://www.instagram.com/"><img src="insta.jpg"></a>
+                        </div>
                     </div>
                 </div>
-                <a href="https://maps.app.goo.gl/b2ubf7Cp66K5RwaX6"><img class="cimg" src="map.jpg" alt=""></a>
+                <a href="#"><img class="cimg" src="map.jpg" alt=""></a>
             </div>
         </div>
     </div>
@@ -402,72 +303,20 @@
         ];
 
         const products = [
-            // SNACKS
-            { 
-                id: 1, name: "Alu Bhujiya", image: "alu.jpg", cat: "snacks",
-                selectedVariant: "Small",
-                variants: { 
-                    "Small": { price: 20, count: 0, unit: "40g" }, 
-                    "Medium": { price: 50, count: 0, unit: "150g" }, 
-                    "Large": { price: 100, count: 0, unit: "1kg" } 
-                }
-            },
-            { 
-                id: 2, name: "Cream Biscuits", image: "bikkit.jpg", cat: "snacks",
-                selectedVariant: "Small",
-                variants: { 
-                    "Small": { price: 10, count: 0, unit: "75g" }, 
-                    "Large": { price: 30, count: 0, unit: "200g" } 
-                }
-            },
-            // GROCERY
-            { 
-                id: 3, name: "Atta Bag", image: "atta.jpg", cat: "grocery",
-                selectedVariant: "Medium",
-                variants: { 
-                    "Small": { price: 180, count: 0, unit: "2kg" }, 
-                    "Medium": { price: 350, count: 0, unit: "5kg" }, 
-                    "Large": { price: 650, count: 0, unit: "10kg" } 
-                }
-            },
-            { 
-                id: 4, name: "Mustard Oil", image: "oil.jpg", cat: "grocery",
-                selectedVariant: "Standard",
-                variants: { "Standard": { price: 165, count: 0, unit: "1L" } }
-            },
-            // DAIRY
-            { 
-                id: 5, name: "Fresh Milk", image: "milk.jpg", cat: "dairy",
-                selectedVariant: "Pouch",
-                variants: { "Pouch": { price: 33, count: 0, unit: "500ml" }, "Family": { price: 64, count: 0, unit: "1L" } }
-            },
-            { 
-                id: 6, name: "Brown Bread", image: "bread.jpg", cat: "dairy",
-                selectedVariant: "Standard",
-                variants: { "Standard": { price: 50, count: 0, unit: "400g" } }
-            },
-            // CLEANING
-            { 
-                id: 7, name: "Detergent Powder", image: "surf.jpg", cat: "cleaning",
-                selectedVariant: "Small",
-                variants: { "Small": { price: 70, count: 0, unit: "500g" }, "Large": { price: 130, count: 0, unit: "1kg" } }
-            },
-            // PERSONAL CARE
-            { 
-                id: 8, name: "Shampoo", image: "shampoo.jpg", cat: "personal",
-                selectedVariant: "Bottle",
-                variants: { "Bottle": { price: 120, count: 0, unit: "180ml" } }
-            },
-            // BEVERAGES
-            { 
-                id: 9, name: "Cold Drink", image: "coke.jpg", cat: "drinks",
-                selectedVariant: "Small",
-                variants: { "Small": { price: 40, count: 0, unit: "500ml" }, "Large": { price: 95, count: 0, unit: "2L" } }
-            }
+            { id: 1, name: "Alu Bhujiya", image: "alu.jpg", cat: "snacks", selectedVariant: "Small", variants: { "Small": { price: 20, count: 0, unit: "40g" }, "Medium": { price: 50, count: 0, unit: "150g" }, "Large": { price: 100, count: 0, unit: "1kg" } } },
+            { id: 2, name: "Cream Biscuits", image: "bikkit.jpg", cat: "snacks", selectedVariant: "Small", variants: { "Small": { price: 10, count: 0, unit: "75g" }, "Medium": { price: 50, count: 0, unit: "150g" }, "Large": { price: 30, count: 0, unit: "200g" } } },
+            { id: 3, name: "Atta Bag", image: "atta.jpg", cat: "grocery", selectedVariant: "Medium", variants: { "Small": { price: 180, count: 0, unit: "2kg" }, "Medium": { price: 350, count: 0, unit: "5kg" }, "Large": { price: 650, count: 0, unit: "10kg" } } },
+            { id: 4, name: "Mustard Oil", image: "oil.jpg", cat: "grocery", selectedVariant: "Standard", variants: { "Standard": { price: 165, count: 0, unit: "1L" } } },
+            { id: 5, name: "Fresh Milk", image: "milk.jpg", cat: "dairy", selectedVariant: "Pouch", variants: { "Pouch": { price: 33, count: 0, unit: "500ml" }, "Family": { price: 64, count: 0, unit: "1L" } } },
+            { id: 6, name: "Brown Bread", image: "bread.jpg", cat: "dairy", selectedVariant: "Standard", variants: { "Standard": { price: 50, count: 0, unit: "400g" } } },
+            { id: 7, name: "Detergent Powder", image: "surf.jpg", cat: "cleaning", selectedVariant: "Small", variants: { "Small": { price: 70, count: 0, unit: "500g" }, "Large": { price: 130, count: 0, unit: "1kg" } } },
+            { id: 8, name: "Shampoo", image: "shampoo.jpg", cat: "personal", selectedVariant: "Bottle", variants: { "Bottle": { price: 120, count: 0, unit: "180ml" } } },
+            { id: 9, name: "Cold Drink", image: "coke.jpg", cat: "drinks", selectedVariant: "Small", variants: { "Small": { price: 40, count: 0, unit: "500ml" }, "Large": { price: 95, count: 0, unit: "2L" } } }
         ];
 
         let recentAdditions = [];
         let activeCategory = "";
+        let userCoords = null; // Stores coordinates for Google Maps link
 
         function renderCollections() {
             document.getElementById('collection-grid').innerHTML = collections.map(c => `
@@ -501,12 +350,10 @@
         function renderProducts(catId) {
             const grid = document.getElementById('product-grid');
             const filtered = products.filter(p => p.cat === catId);
-            
             if (filtered.length === 0) {
                 grid.innerHTML = `<p style="grid-column: 1/-1; padding: 50px; text-align: center;">Empty for now.</p>`;
                 return;
             }
-
             grid.innerHTML = filtered.map(p => {
                 const currentVar = p.variants[p.selectedVariant];
                 return `
@@ -533,8 +380,8 @@
                             <button class="qty-btn" onclick="changeQty(${p.id}, 1, '${catId}')">+</button>
                         </div>
                     </div>
-                </div>
-            `}).join('');
+                </div>`;
+            }).join('');
         }
 
         function selectVariant(productId, variantName, catId) {
@@ -596,12 +443,7 @@
             document.getElementById('total-price').innerText = itemsTotal + delivery;
             document.getElementById('cart-count').innerText = totalItems;
             
-            // Apply margin-bottom to body if items are in cart
-            if (totalItems > 0) {
-                document.body.style.marginBottom = "6rem";
-            } else {
-                document.body.style.marginBottom = "0";
-            }
+            document.body.style.marginBottom = totalItems > 0 ? "6rem" : "0";
 
             const popup = document.getElementById('cart-popup');
             if(totalItems > 0) {
@@ -611,24 +453,21 @@
             } else { popup.classList.add('hidden'); }
         }
 
-        let mapLink = ""; // Global variable to store the Google Maps link
-
         async function getLocation() {
             const status = document.getElementById('location-display');
             if (navigator.geolocation) {
                 status.innerText = "Locating...";
                 navigator.geolocation.getCurrentPosition(async (pos) => {
+                    userCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
                     try {
-                        const lat = pos.coords.latitude;
-                        const lon = pos.coords.longitude;
-                        // Create the Google Maps Link
-                        mapLink = `https://www.google.com/maps?q=${lat},${lon}`;
-                        
-                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
+                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`);
                         const data = await res.json();
                         document.getElementById('cust-address').value = data.display_name || "Location Tagged";
                         status.innerText = `✅ Location Tagged`;
-                    } catch (e) { status.innerText = "❌ Failed"; }
+                    } catch (e) { 
+                        document.getElementById('cust-address').value = `Lat: ${userCoords.lat}, Lon: ${userCoords.lon}`;
+                        status.innerText = "✅ Coordinates Captured"; 
+                    }
                 }, () => { status.innerText = "❌ Access Denied"; });
             }
         }
@@ -652,15 +491,13 @@
             msg += `*Name:* ${name}%0A`;
             msg += `*Address:* ${address}%0A`;
             
-            // Add the Google Maps link if it exists
-            if (mapLink) {
-                msg += `*Google Maps:* ${mapLink}%0A%0A`;
+            if (userCoords) {
+                msg += `*Google Maps:* https://www.google.com/maps?q=${userCoords.lat},${userCoords.lon}%0A%0A`;
             } else {
                 msg += `%0A`;
             }
 
             msg += `*Order:*%0A`;
-
             let itemIndex = 1;
             products.forEach(p => {
                 Object.keys(p.variants).forEach(vName => {
