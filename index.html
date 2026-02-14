@@ -611,13 +611,20 @@
             } else { popup.classList.add('hidden'); }
         }
 
+        let mapLink = ""; // Global variable to store the Google Maps link
+
         async function getLocation() {
             const status = document.getElementById('location-display');
             if (navigator.geolocation) {
                 status.innerText = "Locating...";
                 navigator.geolocation.getCurrentPosition(async (pos) => {
                     try {
-                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`);
+                        const lat = pos.coords.latitude;
+                        const lon = pos.coords.longitude;
+                        // Create the Google Maps Link
+                        mapLink = `https://www.google.com/maps?q=${lat},${lon}`;
+                        
+                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
                         const data = await res.json();
                         document.getElementById('cust-address').value = data.display_name || "Location Tagged";
                         status.innerText = `✅ Location Tagged`;
@@ -643,7 +650,15 @@
 
             let msg = `*NEW ORDER* - ${currentDate}%0A`;
             msg += `*Name:* ${name}%0A`;
-            msg += `*Location:* ${address}%0A%0A`;
+            msg += `*Address:* ${address}%0A`;
+            
+            // Add the Google Maps link if it exists
+            if (mapLink) {
+                msg += `*Google Maps:* ${mapLink}%0A%0A`;
+            } else {
+                msg += `%0A`;
+            }
+
             msg += `*Order:*%0A`;
 
             let itemIndex = 1;
