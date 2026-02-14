@@ -85,6 +85,7 @@
             background: rgb(252, 241, 252); border-radius: 12px; padding: 15px; cursor: pointer; 
             transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;
         }
+        
         .collection-card:hover{ transform: translateY(-10px); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 
         .image-preview-box {
@@ -341,7 +342,7 @@
                     <div class="image-preview-box">
                         ${c.previews.map(img => `<div class="image-preview-card"><img src="${img}" onerror="this.src='https://via.placeholder.com/64'"></div>`).join('')}
                     </div>
-                    <h3 style="margin: 5px 0 0 0; font-size: 1rem;">${c.name}</h3>
+                    <h3 style="margin: 5px 0 0 0; font-size: 1.5rem;">${c.name}</h3>
                 </div>
             `).join('');
         }
@@ -378,7 +379,7 @@
                     <div class="img-container">
                         <img src="${p.image}" class="iimg" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <h4 style="margin: 5px 0; font-size: 0.9rem;">${p.name}</h4>
+                    <h4 style="margin: 5px 0; font-size: 1.2rem;">${p.name}</h4>
                     <div class="variant-selector">
                         ${Object.keys(p.variants).map(v => `
                             <button class="variant-btn ${p.selectedVariant === v ? 'active' : ''}" 
