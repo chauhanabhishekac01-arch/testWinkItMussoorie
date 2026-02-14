@@ -402,32 +402,67 @@
         ];
 
         const products = [
+            // SNACKS
             { 
                 id: 1, name: "Alu Bhujiya", image: "alu.jpg", cat: "snacks",
                 selectedVariant: "Small",
                 variants: { 
-                    "Small": { price: 20, count: 0, unit: "40mg" }, 
-                    "Medium": { price: 50, count: 0, unit: "150mg" }, 
+                    "Small": { price: 20, count: 0, unit: "40g" }, 
+                    "Medium": { price: 50, count: 0, unit: "150g" }, 
                     "Large": { price: 100, count: 0, unit: "1kg" } 
                 }
             },
             { 
-                id: 2, name: "Alu Bhujiya", image: "alu.jpg", cat: "snacks",
+                id: 2, name: "Cream Biscuits", image: "bikkit.jpg", cat: "snacks",
                 selectedVariant: "Small",
                 variants: { 
-                    "Small": { price: 20, count: 0, unit: "40mg" }, 
-                    "Medium": { price: 50, count: 0, unit: "150mg" }, 
-                    "Large": { price: 100, count: 0, unit: "1kg" } 
+                    "Small": { price: 10, count: 0, unit: "75g" }, 
+                    "Large": { price: 30, count: 0, unit: "200g" } 
                 }
             },
+            // GROCERY
             { 
-                id: 2, name: "Atta Bag", image: "atta.jpg", cat: "grocery",
-                selectedVariant: "Small",
+                id: 3, name: "Atta Bag", image: "atta.jpg", cat: "grocery",
+                selectedVariant: "Medium",
                 variants: { 
                     "Small": { price: 180, count: 0, unit: "2kg" }, 
                     "Medium": { price: 350, count: 0, unit: "5kg" }, 
                     "Large": { price: 650, count: 0, unit: "10kg" } 
                 }
+            },
+            { 
+                id: 4, name: "Mustard Oil", image: "oil.jpg", cat: "grocery",
+                selectedVariant: "Standard",
+                variants: { "Standard": { price: 165, count: 0, unit: "1L" } }
+            },
+            // DAIRY
+            { 
+                id: 5, name: "Fresh Milk", image: "milk.jpg", cat: "dairy",
+                selectedVariant: "Pouch",
+                variants: { "Pouch": { price: 33, count: 0, unit: "500ml" }, "Family": { price: 64, count: 0, unit: "1L" } }
+            },
+            { 
+                id: 6, name: "Brown Bread", image: "bread.jpg", cat: "dairy",
+                selectedVariant: "Standard",
+                variants: { "Standard": { price: 50, count: 0, unit: "400g" } }
+            },
+            // CLEANING
+            { 
+                id: 7, name: "Detergent Powder", image: "surf.jpg", cat: "cleaning",
+                selectedVariant: "Small",
+                variants: { "Small": { price: 70, count: 0, unit: "500g" }, "Large": { price: 130, count: 0, unit: "1kg" } }
+            },
+            // PERSONAL CARE
+            { 
+                id: 8, name: "Shampoo", image: "shampoo.jpg", cat: "personal",
+                selectedVariant: "Bottle",
+                variants: { "Bottle": { price: 120, count: 0, unit: "180ml" } }
+            },
+            // BEVERAGES
+            { 
+                id: 9, name: "Cold Drink", image: "coke.jpg", cat: "drinks",
+                selectedVariant: "Small",
+                variants: { "Small": { price: 40, count: 0, unit: "500ml" }, "Large": { price: 95, count: 0, unit: "2L" } }
             }
         ];
 
