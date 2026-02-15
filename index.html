@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Order with 6 Persistent Collections</title>
+    <title>Wink It Mussoorie</title>
     <style>
         /* Global Reset */
         * { box-sizing: border-box; }
@@ -187,7 +187,7 @@
         .address-section { margin-top: 15px; background: #f4f4f4; padding: 12px; border-radius: 8px; }
         .address-section input, .address-section textarea { width: 100%; margin-top: 8px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
         
-        .checkout-btn { width: 100%; padding: 15px; background: #25D366; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold; margin-top: 15px; }
+        .checkout-btn { width: 100%; padding: 15px; background: #25D366; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold; margin-top: 15px; display: flex; align-items: center; justify-content: center;}
         .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; float: right; }
 
         .cart-popup { border: 1px solid purple; background-color: rgb(132, 247, 132); position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 320px; padding: 10px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; z-index: 1500; cursor: pointer; }
@@ -270,11 +270,11 @@
             <h3>Total Amount: Rs <span id="total-price">0</span></h3>
             <div class="address-section">
                 <input type="text" id="cust-name" placeholder="Your Name">
-                <textarea id="cust-address" rows="3" placeholder="Address"></textarea>
+                <textarea id="cust-address" rows="3" placeholder="Use share location below" readonly></textarea>
                 <button style="background: #007bff; color: white; border: none; padding: 10px; width: 100%; border-radius: 4px; margin-top: 10px; cursor: pointer;" onclick="getLocation()">📍 Share Location</button>
                 <span id="location-display" style="font-size: 11px; color: #666; display: block; margin-top: 5px;"></span>
             </div>
-            <button class="checkout-btn" onclick="confirmAndSend()"><p>🔒</p>Order via WhatsApp</button>
+            <button class="checkout-btn" onclick="confirmAndSend()"><p>🔒 </p>Order via WhatsApp</button>
         </div>
     </div>
 
