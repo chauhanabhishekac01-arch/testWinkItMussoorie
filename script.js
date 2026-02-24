@@ -264,6 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function startCounters() {
     let startTime = null;
     const duration = 1500; // Ensure duration is defined
+    
 
     function update(currentTime) {
         if (!startTime) startTime = currentTime;
