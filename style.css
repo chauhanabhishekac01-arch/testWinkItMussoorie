@@ -540,5 +540,7 @@ body.dark-mode #orderSidebar { background: black;}
 body.dark-mode .checkout-btn { background: #25D366;}
 body.dark-mode .loc-btn { background: rgb(127, 127, 235);}
 body.dark-mode .search-btn { background: none; border: none;}
-body.dark-mode .order-trigger { background: green;}
+body.dark-mode .cart-popup { background-color: rgb(12, 199, 12);}
+body.dark-mode .cart-popup p{background:none; font-weight: bolder; padding: 0px; margin: 0px;}
+body.dark-mode .order-trigger { background-color: rgb(12, 199, 12);}
 body.dark-mode #cart-count { color: black;}

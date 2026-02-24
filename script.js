@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const countElement = document.getElementById('online-count');
     const counters = document.querySelectorAll('.counter');
     const splash = document.getElementById('splash-screen');
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');
+    const checkbox = document.getElementById('checkbox');
     const body = document.body;
 
     // --- DATA ---
@@ -248,6 +248,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+    if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleSwitch.checked = true; // This moves the slider to the right
+}
 
     // --- UI RENDERING ---
     function renderCollections() {
@@ -264,7 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function startCounters() {
     let startTime = null;
     const duration = 1500; // Ensure duration is defined
-    
 
     function update(currentTime) {
         if (!startTime) startTime = currentTime;
@@ -407,23 +410,8 @@ if (statsSection) {
             }
         }
     });
-    // Check for saved user preference
-    if (currentTheme) {
-        document.body.classList.add(currentTheme === 'dark' ? 'dark-mode' : '');
-        if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
-        }
-    }
-
-    function switchTheme(e) {
-        if (e.target.checked) {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-        }    
-    }
+    
+ 
 
     productSlider.addEventListener('scroll', () => {
         const productScrollTotal = productSlider.scrollHeight - productSlider.clientHeight;
@@ -704,12 +692,19 @@ if (statsSection) {
         window.location.href = `https://api.whatsapp.com/send?phone=917983427187&text=${msg}`;
     });
 
+    checkbox.addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
+    });
+
     // --- STARTUP ---
     updateCount();
-    toggleSwitch.addEventListener('change', switchTheme, false);
     updateDate();
     setInterval(updateCount, 60000);
     products.sort((a, b) => a.name.localeCompare(b.name));
     renderCollections();
     startCounters();
+    if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleSwitch.checked = true; 
+}
 });
