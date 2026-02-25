@@ -472,7 +472,7 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
 .collection-card h3 {
     margin: 5px 0 0 0;
     /* Force smaller font on tiny screens and allow wrapping */
-    font-size: clamp(0.65rem, 2vw, 1rem); 
+    font-size: clamp(0.8rem, 2vw, 1rem); 
     word-wrap: break-word;
     overflow-wrap: break-word;
     display: -webkit-box;
@@ -488,4 +488,5 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
     gap: 2px; /* Minimal gap for mobile density */
     margin-bottom: 5px;
 }
+
 
