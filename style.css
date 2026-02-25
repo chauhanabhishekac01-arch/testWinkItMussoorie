@@ -285,8 +285,26 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
 }
 
 @media (max-width: 768px) {
-    .collection-grid { display: grid; 
-  /* This forces exactly 3 columns on all screen sizes */
+    .collection-grid { 
+        display: grid; 
+        /* This says: make columns at least 100px wide, 
+           but fill the space (up to 3 columns) */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+        gap: 10px; 
+        width: 100%;
+    }
+
+    .collection-card {
+        /* Ensure the card itself doesn't have massive padding 
+           that eats up the 100px width */
+        padding: 8px 4px; 
+    }
+
+    .image-preview-box {
+        /* Allow the preview box to shrink below 160px if needed */
+        max-width: 100%; 
+    }
+}
   grid-template-columns: repeat(3, 1fr); 
   gap: 15px; /* Adjusted gap to ensure they fit on mobile */
   width: 100%;
@@ -546,5 +564,6 @@ body.dark-mode .order-trigger { background-color: rgb(12, 199, 12);}
 body.dark-mode #cart-count { color: black;}
 
 body.dark-mode .logo h2{ background-color: none;}
+
 
 
