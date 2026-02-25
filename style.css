@@ -1,5 +1,5 @@
 /* 10:30 pm*/
-* { box-sizing: border-box;}
+* { box-sizing: border-box; }
 body { font-family: sans-serif; margin: 0; padding: 0; overflow-x: hidden; background-color: rgb(252, 241, 252); width: 100%; scroll-behavior: smooth; display: flex; align-items: center; justify-content: center; flex-direction: column;}
 a { text-decoration: none; }
 
@@ -30,7 +30,7 @@ header { width: 100%; height: 4rem; border-bottom: 1px solid #ccc; display: flex
 
 .search-container { display: flex; align-items: center; background: white; border-radius: 20px; padding: 2px 10px; margin: 0 10px; flex-grow: 0.5; position: relative; }
 .search-container input { border: none; outline: none; padding: 5px; width: 100%; border-radius: 20px; font-size: 0.9rem;}
-.search-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; animation: move 1s linear infinite; border-radius: 5px;}
+.search-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; animation: move 1s linear infinite;}
 
 /* Clear Search Button Style */
 .clear-btn { padding: 0 5px; cursor: pointer; color: #999; font-weight: bold; font-size: 0.8rem; transition: 0.2s; }
@@ -93,9 +93,9 @@ header { width: 100%; height: 4rem; border-bottom: 1px solid #ccc; display: flex
 .collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(90%, 350px), 1fr)); gap: 20px; width: 100%;}
 .collection-card { background: rgb(250, 204, 250); border-radius: 12px; padding: 5px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;}
 .collection-card:hover { transform: translateY(-10px); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-.collection-card h3 { margin: 5px 0 0 0; font-size: 1.1rem; border-radius: 50px;}
+.collection-card h3 { margin: 5px 0 0 0; font-size: 1.1rem; }
 
-.image-preview-box { display: grid; width: 100%; max-width: 90px; grid-template-columns: 1fr 1fr; margin: 0 auto 10px auto; background: none; overflow: hidden; border-radius: 15px; gap: 0.2rem;}
+.image-preview-box { display: grid; width: 100%; max-width: 160px; grid-template-columns: 1fr 1fr; margin: 0 auto 10px auto; background: none; overflow: hidden; border-radius: 15px; gap: 0.2rem;}
 .image-preview-card { border: 0.5px solid #fff; aspect-ratio: 1/1; border-radius: 15px;}
 .image-preview-card img { width: 100%; height: 100%; display: block; object-fit: cover; border: 0.5px solid purple; border-radius: 15px;}
 
@@ -212,10 +212,10 @@ header { width: 100%; height: 4rem; border-bottom: 1px solid #ccc; display: flex
 .iimg { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .variant-selector { display: flex; justify-content: center; flex-direction: column; flex-wrap: wrap; gap: 5px; margin: 10px 0; height: clamp(5rem, 8vw, 8rem); margin: 0px; padding: 0px; border-top: 1px solid purple; border-bottom: 1px solid purple; }
-.variant-btn { display: flex; justify-content: space-between; gap: 10px; padding: 4px 10px; font-size: 1.1rem; border: 1px solid #ccc; background-color: none; border-radius: 20px; cursor: pointer; min-width: 100px;}
+.variant-btn { display: flex; justify-content: space-between; gap: 10px; padding: 4px 10px; font-size: 1.1rem; border: 1px solid #ccc; background: white; border-radius: 20px; cursor: pointer; min-width: 100px;}
 .variant-btn.active { background: rgb(12, 155, 12); color: white; border-color: #333; }
-.variant-btn span { font-size: 1rem; background: none;}
-.unit-text { opacity: 0.8; font-weight: normal;}
+.variant-btn span { font-size: 1rem; }
+.unit-text { opacity: 0.8; font-weight: normal; }
 
 .controls { display: flex; justify-content: center; align-items: center; gap: 10px; min-height: 40px; }
 .controls button { padding: 5px 10px; cursor: pointer; border: 1px solid #333; background: rgb(7, 207, 57); border-radius: 4px; font-weight: bold; font-size: 1.2rem; }
@@ -271,7 +271,7 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
 .aimg { display: flex; justify-content: center; align-items: center; width: 100%; height: clamp(20rem, 60vw, 60rem);}
 .aimg img { height: 100%; width: 90%; padding: 20px 0px; object-fit: contain;}
 
-.cbox { width: 95%; overflow: hidden; border: 1px solid purple; border-radius: 25px; padding: 40px 0;}
+.cbox { margin-top: 2rem; width: 95%; overflow: hidden; border: 1px solid purple; border-radius: 25px; padding: 20px 0;}
 .cwrap { flex-wrap:nowrap; width: 100%; display: flex; justify-content: space-evenly; align-items: center; flex-direction: row; gap: 20px;}
 .cimg { height: clamp(5rem, 20vw, 18rem); width: clamp(5rem, 22vw, 20rem); border: 1px solid purple; border-radius: 10px; box-shadow: 0 6px 15px rgba(17, 1, 9, 0.5); object-fit: contain;}
 .ctext { text-align: center; border: 1px solid purple; padding: 0px 0px; width: 90%; font-size: clamp(0.7rem, 1.5vw, 1.5rem); display: flex; justify-content: center; align-items: center; flex-direction: column; box-shadow: 0 6px 15px rgba(17, 1, 9, 0.5); border-radius: 25px; background-color: white; height: clamp(10rem, 20vw, 20rem); line-height: clamp(0.1rem, 0.1vw, 0.1rem); width: clamp(10rem, 20vw, 20rem);}
@@ -335,7 +335,8 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
     justify-content: start; /* This pushes items to the ends */
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; /* Optional: keeps it from getting too wide on huge screens */
+    margin: 0.5rem 1rem 0rem 1rem;
     padding: 0rem 0.5rem 0rem 0.5rem;
 }
 
@@ -393,8 +394,7 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
             opacity: 0;
             text-align: center;
             width: 100%;
-            margin: 0rem 0rem;
-            padding: 2rem 0rem;
+            margin: 2rem 0rem;
             animation: scroll linear forwards;
             animation-timeline: view();
             animation-range: entry 0% entry 100%;
@@ -431,116 +431,4 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
             font-weight: 500;
         }
 
-/* Top Bar Layout */
-.top-bar {
-    display: flex;
-    justify-content: space-between; /* Pushes status to left, button to right */
-    align-items: center;
-    padding: 5px 10px;
-    transition: background 0.3s ease;
-}
 
-/* Theme Button Styling */
-/* Container for the switch */
-.theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-.theme-switch {
-    display: inline-block;
-    height: 24px;
-    position: relative;
-    width: 50px;
-}
-
-.theme-switch input {
-    display: none; /* Hide default checkbox */
-}
-
-/* The track */
-/* The track - Default (Light Mode / Left) */
-.slider {
-    background-color: #FFD700; /* Bright Yellow */
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-    border-radius: 34px;
-    border: 1px solid black; /* Optional: slightly darker yellow border */
-}
-
-/* The sliding knob */
-.slider:before {
-    background-color: #fff;
-    bottom: 3px;
-    content: "";
-    height: 18px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 18px;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    background-image: url('sun.png'); /* Sun Icon */
-    background-size: 100%; /* Adjust size of icon inside circle */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #fff;
-}
-
-/* When checked (Dark Mode / Right) */
-input:checked + .slider {
-    background-color: #C0C0C0; /* Silver */
-    border: 1px solid #a9a9a9; /* Optional: slightly darker silver border */
-}
-
-/* Movement of the knob */
-input:checked + .slider:before {
-    transform: translateX(24px);
-    background-image: url('moon.png'); /* Sun Icon */
-    background-size: 100%; /* Adjust size of icon inside circle */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #fff; /* Keeping the knob off-white for contrast */
-}
-
-/* --- Dark Mode Theme for the rest of the page --- */
-body.dark-mode * {
-    background: black;
-    background-color: #000;
-    color: #fff;
-}
-body.dark-mode button {
-    background: black;
-    background-color: #000;
-    border: 1px solid white;
-}
-body.dark-mode .image-preview-box {background:grey;}
-body.dark-mode .collection-card { background: grey;}
-/* Making sure your product slider follows the dark theme */
-body.dark-mode .product-slider {
-    background-color: #000 !important;
-    border: 1px solid #333;
-}
-body.dark-mode span {
-    background: none;
-}
-body.dark-mode .dot{
-    background-color: green;
-}
-body.dark-mode .stat-group:nth-child(2) {
-            border-right: 1px solid grey;
-            border-left: 1px solid grey;
-        }
-body.dark-mode #orderSidebar { background: black;}
-body.dark-mode .checkout-btn { background: #25D366;}
-body.dark-mode .loc-btn { background: rgb(127, 127, 235);}
-body.dark-mode .search-btn { background: none; border: none;}
-body.dark-mode .cart-popup { background-color: rgb(12, 199, 12);}
-body.dark-mode .cart-popup p{background:none; font-weight: bolder; padding: 0px; margin: 0px;}
-body.dark-mode .order-trigger { background-color: rgb(12, 199, 12);}
-body.dark-mode #cart-count { color: black;}
