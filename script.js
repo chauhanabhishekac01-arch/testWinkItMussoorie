@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- DATA ---
     const collections = [
-        { id: "beverages", name: "B", previews: ["dwater.jpg", "dcokeb.jpg", "dcokec.jpg", "dpepsi.jpg"] },
-        { id: "snacks", name: "S", previews: ["ssalted.jpg", "skurkurem.jpg", "slaysg.jpg", "skurkurec.jpg"] },
-        { id: "biscuits", name: "B", previews: ["bicrakjack.jpg", "biparleg.jpg", "bihideandseek.jpg", "bioreo.jpg"] },
-        { id: "chocolates", name: "C", previews: ["chdc.jpg", "chcrispello.jpg", "chfruitnnut.jpg", "chkinderjoy.jpg"] },
-        { id: "cleaningessentials", name: "C", previews: ["clarielb.jpg", "clharpic.jpg", "clodonill.jpg", "clfeathern.jpg"] },
-        { id: "personal", name: "P", previews: ["pccomb.jpg", "pcalmond.jpg", "pcgillette.jpg", "pctowel.jpg"] }
+        { id: "beverages", name: "Beverages", previews: ["dwater.jpg", "dcokeb.jpg", "dcokec.jpg", "dpepsi.jpg"] },
+        { id: "snacks", name: "Snacks", previews: ["ssalted.jpg", "skurkurem.jpg", "slaysg.jpg", "skurkurec.jpg"] },
+        { id: "biscuits", name: "Biscuits", previews: ["bicrakjack.jpg", "biparleg.jpg", "bihideandseek.jpg", "bioreo.jpg"] },
+        { id: "chocolates", name: "Chocolates", previews: ["chdc.jpg", "chcrispello.jpg", "chfruitnnut.jpg", "chkinderjoy.jpg"] },
+        { id: "cleaningessentials", name: "Cleaning", previews: ["clarielb.jpg", "clharpic.jpg", "clodonill.jpg", "clfeathern.jpg"] },
+        { id: "personal", name: "Personal Care", previews: ["pccomb.jpg", "pcalmond.jpg", "pcgillette.jpg", "pctowel.jpg"] }
     ];
 
     const products = [
@@ -767,5 +767,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCount, 60000);
     products.sort((a, b) => a.name.localeCompare(b.name));
     renderCollections();
-
 });
