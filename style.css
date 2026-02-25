@@ -90,26 +90,12 @@ header { width: 100%; height: 4rem; border-bottom: 1px solid #ccc; display: flex
 #collection-view h1.main-title { margin: 0px 0px 16px 0px; padding: 0px; width: 100%; display: flex; justify-content: center; align-items: center; font-size: 2.5rem;}
 .heading { margin: 0px 0px 5px 0px; padding: 0px; width: 100%; display: flex; justify-content: center; align-items: center; font-size: 2.5rem;}
 
-.collection-grid { display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 15px; 
-    width: 100%;}
-.collection-card { background: rgb(250, 204, 250); 
-    border-radius: 12px; 
-    padding: 10px; 
-    cursor: pointer; 
-    transition: 0.3s; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
-    text-align: center;
-    
-    /* Ensures all cards in a row have the exact same height */
-    display: flex;
-    flex-direction: column;
-    height: 100%;}
+.collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100px), 1fr)); gap: 20px; width: 100%;}
+.collection-card { background: rgb(252, 178, 252); border-radius: 12px; padding: 5px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; width: 100%;}
 .collection-card:hover { transform: translateY(-10px); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-.collection-card h3 { margin: 5px 0 0 0; font-size: 1.1rem; }
+.collection-card h3 { margin: 5px 0 0 0; font-size: 1rem; }
 
-.image-preview-box { display: grid; width: 100%; grid-template-columns: 1fr 1fr; margin: 0 auto 10px auto; background: none; overflow: hidden; border-radius: 15px; gap: 0.2rem; aspect-ratio: 1 / 1;}
+.image-preview-box { display: grid; width: 100%; max-width: 100px; grid-template-columns: 1fr 1fr; margin: 0 auto 10px auto; background: none; overflow: hidden; border-radius: 15px; gap: 0.2rem;}
 .image-preview-card { border: 0.5px solid #fff; aspect-ratio: 1/1; border-radius: 15px;}
 .image-preview-card img { width: 100%; height: 100%; display: block; object-fit: cover; border: 0.5px solid purple; border-radius: 15px;}
 
@@ -190,7 +176,7 @@ header { width: 100%; height: 4rem; border-bottom: 1px solid #ccc; display: flex
 .subcat-nav-item span {
     font-size: 0.9rem;
     font-weight: bold;
-    color: white;
+    color: #333;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
@@ -299,12 +285,7 @@ h6 { font-size: 1.3rem; margin: 0px; padding: 0px; text-align: center;}
 }
 
 @media (max-width: 768px) {
-    .collection-grid { display: grid; 
-  /* This forces exactly 3 columns on all screen sizes */
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 15px; /* Adjusted gap to ensure they fit on mobile */
-  width: 100%;
-}
+    .collection-grid { grid-template-columns: 1fr 1fr 1fr; }
     #product-grid { grid-template-columns: 1fr 1fr; }
     .atext { order: 1;}
     .logo { font-size: clamp(1rem, 3vw, 1.2rem); line-height: 1.1; }
