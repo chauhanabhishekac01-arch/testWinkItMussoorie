@@ -643,17 +643,25 @@ if (statsSection) {
     let baseDelivery = itemsTotal > 0 ? (itemsTotal < 0 ? 0 : (itemsTotal <= 0 ? 0 : 0)) : 0;
 
     // --- 2. KM BASED CHARGES ---
-    let kmCharges = 0;
-    
-    // Logic: Only calculate if items exist AND location is tagged
-    if (itemsTotal > 0 && locationTagged) {
-        if (currentDistance <= 2) kmCharges = 30;
-        else if (currentDistance <= 5) kmCharges = 50; 
-        else if (currentDistance <= 7) kmCharges = 80;
-        else if (currentDistance <= 9) kmCharges = 90;
-        else if (currentDistance <= 11) kmCharges = 100;
-        else kmCharges = 120; 
+    // --- 2. KM BASED CHARGES (RE-ORDERED FOR ACCURACY) ---
+let kmCharges = 0;
+const distance = window.currentDistance || 0; 
+
+if (itemsTotal > 0 && distance > 0) {
+    if (distance > 11) {
+        kmCharges = 120; // Default for very far locations
+    } else if (distance > 9) {
+        kmCharges = 100; // 9-11km
+    } else if (distance > 7) {
+        kmCharges = 90;  // 7-9km
+    } else if (distance > 5) {
+        kmCharges = 80;  // 5-7km -> This will now catch your 6km customer!
+    } else if (distance > 2) {
+        kmCharges = 50;  // 2-5km
+    } else {
+        kmCharges = 30;  // 0-2km
     }
+}
 
     // --- 3. NIGHT CHARGES LOGIC (8PM to 7AM) ---
     let nightCharges = 0;
