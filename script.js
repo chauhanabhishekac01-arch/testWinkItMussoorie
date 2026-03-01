@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.getElementById('checkbox');
     // --- WINK IT CONFIGURATION ---
     // These coordinates are set to the heart of Mussoorie (approx Kulri/Mall Rd area)
-    const SHOP_COORDS = { lat: 30.4550, lon: 78.0766 }; // F33P+4FJ Mussoorie
+    const SHOP_COORDS = { lat: 30.4528, lon: 78.086151 }; // F33P+4FJ Mussoorie
     let currentDistance = 0; 
     let locationTagged = false; // Global variable to hold the calculated distance
     const body = document.body;
@@ -404,6 +404,21 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.add('dark-mode');
     checkbox.checked = true; // ✅ FIXED
 }
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; 
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    
+    const crowFlies = R * c;
+    
+    // Add a 30% buffer to simulate road winding/turns
+    const estimatedRoadDistance = crowFlies * 1.3; 
+    
+    return estimatedRoadDistance; 
+}
 
     // --- UI RENDERING ---
     function renderCollections() {
@@ -676,7 +691,7 @@ if (statsSection) {
     
     // Show a message if location isn't tagged yet
     const deliveryDisplay = document.getElementById('delivery-val');
-    deliveryDisplay.innerText = locationTagged ? totalDelivery : "Tag Locatio";
+    deliveryDisplay.innerText = locationTagged ? totalDelivery : "Tag Location";
     deliveryDisplay.style.color = locationTagged ? "" : "#ff9800"; // Orange alert if not tagged
 
     document.getElementById('total-price').innerText = itemsTotal + (locationTagged ? totalDelivery : 0);
@@ -1077,4 +1092,3 @@ reviewContainer.addEventListener('mousedown', () => {
 }
 
 });
-
