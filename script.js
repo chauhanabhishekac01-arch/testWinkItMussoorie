@@ -23,12 +23,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const splash = document.getElementById('splash-screen');
     const currentTheme = localStorage.getItem('theme');
     const checkbox = document.getElementById('checkbox');
+     const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slider-wrapper img');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
     // --- WINK IT CONFIGURATION ---
     // These coordinates are set to the heart of Mussoorie (approx Kulri/Mall Rd area)
     const SHOP_COORDS = { lat: 30.4528, lon: 78.086151 }; // F33P+4FJ Mussoorie
     let currentDistance = 0; 
     let locationTagged = false; // Global variable to hold the calculated distance
     const body = document.body;
+
+    // --- AUTO-PLAY CONFIGURATION ---
+let autoPlayInterval;
+let movingForward = true;
+const scrollDelay = 5000; // 5 seconds
+
+function startAutoPlay() {
+    // Clear any existing interval to avoid speed-stacking
+    stopAutoPlay(); 
+    
+    autoPlayInterval = setInterval(() => {
+        if (movingForward) {
+            // If at the last slide, switch to reverse
+            if (currentIndex === slides.length - 1) {
+                movingForward = false;
+                moveSlide(-1);
+            } else {
+                moveSlide(1);
+            }
+        } else {
+            // If at the first slide, switch to forward
+            if (currentIndex === 0) {
+                movingForward = true;
+                moveSlide(1);
+            } else {
+                moveSlide(-1);
+            }
+        }
+    }, scrollDelay);
+}
+
+function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+}
+
+// --- ATTACH STOP TRIGGERS ---
+// If the user clicks a button, stop auto-scroll
+[prevBtn, nextBtn].forEach(btn => {
+    btn.addEventListener('click', () => {
+        stopAutoPlay();
+        // moveSlide is already called via your existing listeners
+    });
+});
+
+// If the user swipes/drags, stop auto-scroll
+slider.addEventListener('touchstart', stopAutoPlay);
+slider.addEventListener('mousedown', stopAutoPlay);
+
+// --- START THE CYCLE ---
+startAutoPlay();
 
     // --- DATA ---
     const faqData = [
@@ -327,6 +381,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeCategory = "";
     let userCoords = null;
     const duration = 1000;
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
 
     // --- SPLASH SCREEN LOGIC ---
     if (window.innerWidth < 768) {
@@ -419,6 +476,43 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     
     return estimatedRoadDistance; 
 }
+ function moveSlide(direction) {
+        const targetIndex = currentIndex + direction;
+        if (targetIndex >= 0 && targetIndex < slides.length) {
+            currentIndex = targetIndex;
+            updateUI();
+        }
+    }
+
+    function updateUI() {
+    // We use getBoundingClientRect for more precision than clientWidth
+    const width = slider.getBoundingClientRect().width;
+    
+    // Apply the move
+    slider.style.transform = `translateX(${-currentIndex * width}px)`;
+
+    // Button states
+    prevBtn.disabled = (currentIndex === 0);
+    nextBtn.disabled = (currentIndex === slides.length - 1);
+    
+    // Debugging: Uncomment the line below to see the width in your console (F12)
+    // console.log("Current Width:", width, "Index:", currentIndex);
+}
+
+// Ensure it runs only after images/styles are fully ready
+window.addEventListener('load', updateUI);
+window.addEventListener('resize', updateUI);
+
+    const getX = (e) => e.touches ? e.touches[0].clientX : e.clientX;
+    const startDrag = (e) => { startX = getX(e); isDragging = true; };
+    const endDrag = (e) => {
+        if (!isDragging) return;
+        const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        const distance = startX - endX;
+        if (distance > 50) moveSlide(1);
+        if (distance < -50) moveSlide(-1);
+        isDragging = false;
+    };
 
     // --- UI RENDERING ---
     function renderCollections() {
@@ -587,6 +681,10 @@ if (statsSection) {
             }
         }
     });
+    slider.addEventListener('touchstart', startDrag);
+    slider.addEventListener('touchend', endDrag);
+    slider.addEventListener('mousedown', startDrag);
+    slider.addEventListener('mouseup', endDrag);
     
  
 
@@ -613,6 +711,7 @@ if (statsSection) {
     });
 
     // --- UTILITIES ---
+    
     function updateDate() {
         const now = new Date();
         const day = String(now.getDate()).padStart(2, '0');
@@ -1080,6 +1179,8 @@ reviewContainer.addEventListener('mousedown', () => {
     updateCount();
     updateDate();
     setInterval(updateCount, 60000);
+     window.addEventListener('resize', updateUI);
+    updateUI();
     
     // Sort and Render
     products.sort((a, b) => a.name.localeCompare(b.name));
