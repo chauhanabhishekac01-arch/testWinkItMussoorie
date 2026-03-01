@@ -676,7 +676,7 @@ if (statsSection) {
     
     // Show a message if location isn't tagged yet
     const deliveryDisplay = document.getElementById('delivery-val');
-    deliveryDisplay.innerText = locationTagged ? totalDelivery : "Tag Location";
+    deliveryDisplay.innerText = locationTagged ? totalDelivery : "Tag Locatio";
     deliveryDisplay.style.color = locationTagged ? "" : "#ff9800"; // Orange alert if not tagged
 
     document.getElementById('total-price').innerText = itemsTotal + (locationTagged ? totalDelivery : 0);
@@ -1077,3 +1077,4 @@ reviewContainer.addEventListener('mousedown', () => {
 }
 
 });
+
