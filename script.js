@@ -485,7 +485,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     const crowFlies = R * c;
     
     // Add a 30% buffer to simulate road winding/turns
-    const estimatedRoadDistance = crowFlies * 1.5; 
+    const estimatedRoadDistance = crowFlies * 2; 
     
     return estimatedRoadDistance; 
 }
@@ -1206,3 +1206,4 @@ reviewContainer.addEventListener('mousedown', () => {
 }
 
 });
+
