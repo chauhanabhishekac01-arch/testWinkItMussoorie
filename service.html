@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2:1 Image Slider</title>
+    <style>
+        :root {
+            /* Width is 40rem, Height will be 20rem (2:1) */
+            --slider-width: 40rem; 
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #eceff1;
+            font-family: sans-serif;
+        }
+
+        .slider-container {
+            position: relative;
+            width: var(--slider-width);
+            /* This ensures the 2:1 ratio automatically */
+            aspect-ratio: 2 / 1; 
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            background: #222;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: grab;
+        }
+
+        .slider-wrapper:active {
+            cursor: grabbing;
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Keeps image from stretching */
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        /* Navigation Buttons */
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            /* Lowering opacity and using more transparent background */
+            background: rgba(255, 255, 255, 0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Modern 'glass' effect */
+            width: 50px;
+            opacity: 1;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 22px;
+            color: #fff;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Hide buttons when disabled */
+        .btn:disabled {
+            opacity: 0;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .left { left: 20px; }
+        .right { right: 20px; }
+
+        /* Responsive Mobile Tweak */
+        @media (max-width: 768px) {
+            :root {
+                --slider-width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <a href="">
+        <div class="slider-wrapper" id="slider">
+            <img src="service3.jpg" alt="Slide 3">
+            <img src="service1.jpg" alt="Slide 1">
+            <img src="service2.jpg" alt="Slide 2">
+            <img src="service4.jpg" alt="Slide 4">
+            <img src="service5.jpg" alt="Slide 5">
+        </div>
+    </a>
+
+    <button class="btn left" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="btn right" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<script>
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slider-wrapper img');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+
+    function moveSlide(direction) {
+        const targetIndex = currentIndex + direction;
+        if (targetIndex >= 0 && targetIndex < slides.length) {
+            currentIndex = targetIndex;
+            updateUI();
+        }
+    }
+
+    function updateUI() {
+        const width = slider.clientWidth;
+        slider.style.transform = `translateX(${-currentIndex * width}px)`;
+        prevBtn.disabled = (currentIndex === 0);
+        nextBtn.disabled = (currentIndex === slides.length - 1);
+    }
+
+    const getX = (e) => e.touches ? e.touches[0].clientX : e.clientX;
+    const startDrag = (e) => { startX = getX(e); isDragging = true; };
+    const endDrag = (e) => {
+        if (!isDragging) return;
+        const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        const distance = startX - endX;
+        if (distance > 50) moveSlide(1);
+        if (distance < -50) moveSlide(-1);
+        isDragging = false;
+    };
+
+    slider.addEventListener('touchstart', startDrag);
+    slider.addEventListener('touchend', endDrag);
+    slider.addEventListener('mousedown', startDrag);
+    slider.addEventListener('mouseup', endDrag);
+    window.addEventListener('resize', updateUI);
+    updateUI();
+</script>
+
+</body>
+</html>
