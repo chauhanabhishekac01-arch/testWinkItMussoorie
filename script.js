@@ -114,7 +114,7 @@ startAutoPlay();
         { id: "g", name: "General",                                 previews: ["g.jpg"] },
         { id: "cleaningessentials", name: "Cleaners and Freshners", previews: ["cf.jpg"] },
         { id: "partneromi", name: "Omi's Sweets",                           previews: ["omi.jpg"] },
-        { id: "partneromif", name: "Omi's Food",                           previews: ["omi.jpg"] }
+        { id: "partneromif", name: "Omi's Food",                           previews: ["omifo.jpg"] }
         
         
         
@@ -1299,7 +1299,7 @@ whatsappBtn.addEventListener('click', () => {
     
     
     if (total == "0" || total == "") { alert("Cart is empty!"); return; }
-    if (!name || !address) { alert("Please enter Name and Address."); return; }
+    if (!name || !address) { alert("Please enter both Name and Address."); return; }
     
     const now = new Date();
     const dateStr = now.toLocaleDateString('en-GB'); 
