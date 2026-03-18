@@ -5,7 +5,7 @@
     
     <meta name="description" content="Wink It Mussoorie provides premium delivery for food and essentials in 30-60 minutes. Serving the community from 8:00 AM to 11:30 PM. Order via WhatsApp!">
 
-    <meta name="keywords" content="Wink It Mussoorie, food delivery Mussoorie, food delivery char dukan, fast delivery Mussoorie, Delivery, Wink It Landour, food delivery landour, landour delivery, mussoorie delivery, mall road delivery, dalai hill delivery, library delivery">
+    <meta name="keywords" content="Wink It Mussoorie, food delivery Mussoorie, food delivery char dukan, fast delivery Mussoorie, Delivery, Wink It Landour, food delivery landour, landour delivery, mussoorie delivery, mall road delivery, dalai hill delivery, library delivery, food delivery service in Mussoorie, Chacha Ka Dhabba, Landour Bakehouse, Rokby, Savoy, Omi's Mussoorie, Omi's Sweet Shop, Mussoorie Weather, Weather Mussoorie, Mussoorie Distance, Mussoorie Temprature, Temprature Mussoorie, Dehradun To Mussoorie, Airbnb in Mussoorie, Mussoorie Crowd, Kempty Falls, Bhatta Falls, Taxi Mussoorie number, Best Taxi Service in Mussoorie, Taxi Service, Taxi Number Mussoorie, Scoory rental mussoorie, Scooty Rental Number Mussoorie, Mussoorie Taxi Number">
 
     <meta property="og:title" content="WinkIt Mussoorie">
     <meta property="og:description" content="Fastest delivery for food and essentials in Mussoorie. Open 8:00 AM - 11:30 PM.">
@@ -24,7 +24,7 @@
     </div>
     <div id="cart-popup" class="cart-popup hidden">
         <div id="popup-images-container" class="popup-images"></div>
-        <p><span id="popup-count">0</span> Items in cart</p>
+        <p><span id="popup-count">0</span> Item in cart</p>
     </div>
 
     <header>
@@ -64,9 +64,27 @@
     </div>
 
     <main id="collection-view">
-        <h1 class="main-title">Collections</h1>
         <div class="collection-grid" id="collection-grid"></div>
-    </main>
+    </mai   n>
+    <div class="ourservice"><h1 class="main-title">&lt; Our Services &gt;</h1></div>
+    
+    <div class="scmain">
+    <div class="slider-container">
+        
+        <a href="https://api.whatsapp.com/send?phone=917983427187&text=Hi,%20I'd%20like%20to%20request%20a%20service."> 
+                <div class="slider-wrapper" id="slider">
+                <img src="service3.jpg" alt="Slide 3">
+                <img src="service1.jpg" alt="Slide 1">
+                <img src="service2.jpg" alt="Slide 2">
+                <img src="service4.jpg" alt="Slide 4">
+                <img src="service5.jpg" alt="Slide 5">
+            </div>
+        </a>
+    <button class="btn left" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="btn right" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    </div>
+
 
     <div id="product-slider">
         <div class="slider-header">
@@ -87,6 +105,7 @@
         <div id="sidebar-footer">
             <hr>
             <p>Items Total: Rs <span id="subtotal-val">0</span></p>
+            <p id="tax-row" style="display: none;">Store GST (5%): Rs <span id="tax-val">0</span></p>
             <p>Delivery Charges: Rs <span id="delivery-val">0</span></p>
             <h3>Total Amount: Rs <span id="total-price">0</span></h3>
             <div class="address-section">
@@ -103,15 +122,15 @@
     </div>
     <div class="stats-container">
         <div class="stat-group">
-            <span class="counter" data-target="20">0+</span>
+            <span class="counter" data-target="70">0+</span>
             <span class="label">Orders</span>
         </div>
         <div class="stat-group">
-            <span class="counter" data-target="200">0+</span>
+            <span class="counter" data-target="400">0+</span>
             <span class="label">Products</span>
         </div>
         <div class="stat-group">
-            <span class="counter" data-target="4">0+</span>
+            <span class="counter" data-target="2">0+</span>
             <span class="label">Delivery<br>Partners</span>
         </div>
     </div>
@@ -159,4 +178,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
