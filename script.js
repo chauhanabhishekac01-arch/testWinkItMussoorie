@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slider-wrapper img');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
+    const serviceDots = document.querySelectorAll('.dota');
     // --- WINK IT CONFIGUadc ---
     // These coordinates are set to the heart of Mussoorie (approx Kulri/Mall Rd area)
     const SHOP_COORDS = { lat: 30.4528, lon: 78.086151 }; // F33P+4FJ Mussoorie
@@ -101,6 +102,7 @@ startAutoPlay();
         { id: "partneromi", name: "Omi's Sweets",                   previews: ["omi.jpg"] },
         { id: "partneromif", name: "Omi's Food",                    previews: ["omifo.jpg"] },
         { id: "garrison", name: "The Garrison",                     previews: ["glogo.jpg"] },
+        { id: "aavi", name: "Aavi Everyday Store",                  previews: ["aavi.jpg"] },
         { id: "beverages", name: "Drinks and Juices",               previews: ["dj.jpg"] },
         { id: "snacks", name: "Chips and Namkeens",                 previews: ["cn.jpg"] },
         { id: "biscuits", name: "Bakery and Biscuits",              previews: ["bb.jpg"] },
@@ -235,7 +237,7 @@ startAutoPlay();
                         { id: 3015, name: "Good Day Fruit and Nut Cookies",                                 image: "bigooddayfn.jpg",       cat: "biscuits",                 subcat: "Britannia",                  selectedVariant: "L",           variants: { "L":        { price: 100, count: 0, unit: "450g" } } },
                         { id: 3016, name: "Britannia Bourbon ",                                             image: "bibritanniab.jpg",      cat: "biscuits",                 subcat: "Britannia",                  selectedVariant: "L",           variants: { "L":        { price: 35, count: 0, unit: "100g" } } },
                         { id: 3017, name: "Britannia Nice Time Coconut Biscuit",                            image: "bibritanniant.jpg",     cat: "biscuits",                 subcat: "Britannia",                  selectedVariant: "L",           variants: { "L":        { price: 25, count: 0, unit: "136g" } } },
-                        { id: 3018, name: "Britannia Croissant",                                            image: "ccroissant.jpg",        cat: "biscuits",                 subcat: "Britannia",                  selectedVariant: "L",           variants: { "L":        { price: 75, count: 0, unit: "240g" } } },
+                        { id: 3018, name: "Britannia Croissant",                                            image: "ccroissant.jpg",        cat: "biscuits",                 subcat: "Britannia",                  selectedVariant: "L",           variants: { "L":        { price: 20, count: 0, unit: "45g" } } },
                         { id: 3019, name: "Britannia Marigold",                                             image: "bimari.jpg",            cat: "biscuits",                 subcat: "Britannia",                  selectedVariant: "L",           variants: { "L":        { price: 40, count: 0, unit: "208g" } } },
                         { id: 3020, name: "Britannia Milk Bikis",                                           image: "bimb.jpg",              cat: "biscuits",                 subcat: "Britannia",                  selectedVariant: "L",           variants: { "L":        { price: 70, count: 0, unit: "500g" } }  },
                 
@@ -428,7 +430,7 @@ startAutoPlay();
             /*Desserts*/  { id: 1026,   name: "Brownie",                                                    image: "omib.jpg",              cat: "partneromi",               subcat: "Sweets",                    selectedVariant: "Qty",          variants: { "Qty":     { price: 80, count: 0, unit: "1pc" } } },
             /*Desserts*/  { id: 1027,   name: "Bal Mithai",                                                 image: "omibm.jpg",             cat: "partneromi",               subcat: "Sweets",                    selectedVariant: "Qty",          variants: { "Qty":     { price: 300, count: 0, unit: "500g" }, "Qty.":        { price: 600, count: 0, unit: "1kg" } } },
             /*Desserts*/  { id: 1028,   name: "Pure Chocolate Barfi",                                       image: "omicb.jpg",             cat: "partneromi",               subcat: "Sweets",                    selectedVariant: "Qty",          variants: { "Qty":     { price: 300, count: 0, unit: "500g" }, "Qty.":        { price: 600, count: 0, unit: "1kg"         } } },
-        /*Desserts*/      { id: 1229,   name: "Legendry Desi Ghee Sohan Halwa",                             image: "omilbm.jpg",            cat: "partneromi",               subcat: "Sweets",                    selectedVariant: "Qty",          variants: { "Qty":     { price: 120, count: 0, unit: "2pc" }, "Qty.":        { price: 300, count: 0, unit: "250g"         } } },
+            /*Desserts*/  { id: 1229,   name: "Legendry Desi Ghee Sohan Halwa",                             image: "omilbm.jpg",            cat: "partneromi",               subcat: "Sweets",                    selectedVariant: "Qty",          variants: { "Qty":     { price: 120, count: 0, unit: "2pc" }, "Qty.":        { price: 300, count: 0, unit: "250g"         } } },
 
             /*Desserts*/  { id: 1069,   name: "Pineapple Cake",                                             image: "omipcake.jpg",          cat: "partneromi",               subcat: "Cakes",                    selectedVariant: "Qty",          variants: { "Qty":     { price: 280, count: 0, unit: "1 Pound" } } },
             /*Desserts*/  { id: 1070,   name: "Black Forest Cake",                                          image: "omibfc.jpg",            cat: "partneromi",               subcat: "Cakes",                    selectedVariant: "Qty",          variants: { "Qty":     { price: 300, count: 0, unit: "1 Pound" } } },
@@ -491,7 +493,7 @@ startAutoPlay();
                             { id: 1113,   name: "Medu Vada",                                                image: "omimvada.jpg",          cat: "partneromif",              subcat: "South Indian",              selectedVariant: "Qty",          variants: { "Qty":      { price: 120, count: 0, unit: "2pc" } } },
 
                             { id: 1114,   name: "Momos Veg Steamed",                                        image: "omivm.jpg",             cat: "partneromif",              subcat: "Chinese",                   selectedVariant: "Qty",          variants: { "Qty":      { price: 100, count: 0, unit: "6pc" } } },
-                            { id: 1115,   name: "Momos Veg Fried",                                          image: "omivf.jpg",             cat: "partneromif",              subcat: "Chinese",                   selectedVariant: "Qty",          variants: { "Qty":      { price: 100, count: 0, unit: "6pc" } } },
+                            { id: 1115,   name: "Momos Veg Fried",                                          image: "omivf.jpg",             cat: "partneromif",              subcat: "Chinese",                   selectedVariant: "Qty",          variants: { "Qty":      { price: 130, count: 0, unit: "6pc" } } },
                             { id: 1116,   name: "Veg Noodles",                                              image: "omivn.jpg",             cat: "partneromif",              subcat: "Chinese",                   selectedVariant: "Qty",          variants: { "Qty":      { price: 150, count: 0, unit: "1plt" } } },
                             { id: 1117,   name: "Fried Rice",                                               image: "omifr.jpg",             cat: "partneromif",              subcat: "Chinese",                   selectedVariant: "Qty",          variants: { "Qty":      { price: 180, count: 0, unit: "1plt" } } },
 
@@ -551,9 +553,25 @@ startAutoPlay();
                             { id: 1161,   name: "Walnut Fudge Brownie",                                     image: "gwfb.jpg",               cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 245, count: 0, unit: "1" } } },
                             { id: 1162,   name: "Lotus Biscoff Cheese Cake",                                image: "glbcc.jpg",              cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 275, count: 0, unit: "1" } } },
                             { id: 1164,   name: "Tres Leches",                                              image: "gtl.jpg",                cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 265, count: 0, unit: "1" } } },
-                            { id: 1165,   name: "Yuzu Cheese Cake",                                         image: "gycc.jpg",               cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 245, count: 0, unit: "1" } } },
                             { id: 1166,   name: "Chocolate Cake",                                           image: "gck.jpg",                cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 200, count: 0, unit: "1" } } },
                             { id: 1167,   name: "Carrot Cheese Cake",                                       image: "gccc.jpg",               cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 240, count: 0, unit: "1" } } },
+                            { id: 1168,   name: "Tiramisu",                                                 image: "gtira.jpg",              cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 315, count: 0, unit: "1" } } },
+                            { id: 1169,   name: "Banana Tea Cake",                                          image: "gbtc.jpg",               cat: "garrison",                 subcat: "Desserts",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 150, count: 0, unit: "1" } } },
+
+                            { id: 1170,   name: "Veg Loaded Burger",                                        image: "gvlb.jpg",               cat: "garrison",                 subcat: "Burger",                 selectedVariant: "Qty",           variants: { "Qty":      { price: 345, count: 0, unit: "1" } } },
+
+                            { id: 1171,   name: "Tiffin Stainless Steel",                                   image: "aavibt4.jpg",            cat: "aavi",                     subcat: "Tiffin",                 description: "Compartment: 3 || Stainless Steel || Leak Proof || 750 ML || Rectangle Shape",                     gallery: ["aavibt1.jpg", "aavibt2.jpg", "aavibt3.jpg", "aavibt4.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 300, count: 0, unit: "1" } } },
+                            { id: 1172,   name: "Tiffin two Layers Blue",                                   image: "aavitiffinb41.jpg",      cat: "aavi",                     subcat: "Tiffin",                 description: "Compartment: 3 || Levels 2 || Leak Proof || Square Shape || Spoon and Fork ",                     gallery: ["aavitiffinb4.jpg", "aavitiffinb42.jpg", "aavitiffinb41.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 200, count: 0, unit: "1" } } },
+                            { id: 1173,   name: "Tiffin one layer Peach",                                   image: "aavitiffinpink.jpg",     cat: "aavi",                     subcat: "Tiffin",                 description: "Compartment: 3 || Stainless Steel || Rectangle Shape || Spoon and Fork",                     gallery: ["aavitiffinpink1.jpg", "aavitiffinpink2.jpg", "aavitiffinpink.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 150, count: 0, unit: "1" } } },
+                            { id: 1174,   name: "Tiffin Bite Buddy",                                        image: "aavitiffinbr.jpg",       cat: "aavi",                     subcat: "Tiffin",                 description: "Compartment: 4 || Stainless Steel || Spoon and Fork",                     gallery: ["aavitiffinbr1.jpg", "aavitiffinbr2.jpg", "aavitiffinbr3.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 345, count: 0, unit: "1" } } },
+
+                            { id: 1175,   name: "Silicon Foldable Water Bottle",                            image: "aavifb1.jpg",            cat: "aavi",                     subcat: "Water Bottle",                 description: "750 ML || Light Weight || Easy to Carry ||",                     gallery: ["aavifb1.jpg", "aavifb2.jpg", "aavifb3.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 280, count: 0, unit: "1" } } },
+                            { id: 1176,   name: "Trendy Sipper",                                            image: "aaviwb.jpg",             cat: "aavi",                     subcat: "Water Bottle",                 description: "500 ML || Light Weight || Easy to Carry || Straw Sipper",                     gallery: ["aaviwb.jpg", "aaviwb1.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 280, count: 0, unit: "1" } } },
+                            { id: 1177,   name: "Astronaut Water Bottle",                                   image: "aaviawb.jpg",            cat: "aavi",                     subcat: "Water Bottle",                 description: "500 ML || Light Weight || Easy to Carry || Straw Sipper",                     gallery: ["aaviawb.jpg", "aaviawb1.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 250, count: 0, unit: "1" } } },
+
+                            { id: 1178,   name: "Bus Pencil Box",                                           image: "aavipb.jpg",             cat: "aavi",                     subcat: "Pencil Box",                 description: "Length: 9.5 || Width: 2.5 || Compartment: 3 || Sharpner",                     gallery: ["aavipb.jpg", "aavipb1.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 200, count: 0, unit: "1" } } },
+                            { id: 1179,   name: "Princess Pencil Box",                                      image: "aavipbp.jpg",            cat: "aavi",                     subcat: "Pencil Box",                 description: "Inbuilt sharpner || Inbuilt eraser || Compartment: 2 || Sharpner",                     gallery: ["aavipbp1.jpg", "aavipbp2.jpg", "aavipbp3.jpg", "aavipbp.jpg"],         selectedVariant: "Qty",        variants: { "Qty": { price: 250, count: 0, unit: "1" } } },
+
 
 /* need to know if omi is cool with this                { id: 1018,   name: "Hot Tea",                      image: "omiht.jpg",             cat: "partneromi",               subcat: "Beverages",                selectedVariant: "Qty",           variants: { "Qty":      { price: 42, count: 0, unit: "300ml" } } },
                               { id: 1019,   name: "Black Cofee",                                            image: "omibc.jpg",             cat: "partneromi",               subcat: "Beverages",                selectedVariant: "Qty",           variants: { "Qty":      { price: 52.5, count: 0, unit: "300ml" } } },
@@ -689,19 +707,31 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     }
 
     function updateUI() {
-    // We use getBoundingClientRect for more precision than clientWidth
-    const width = slider.getBoundingClientRect().width;
-    
-    // Apply the move
-    slider.style.transform = `translateX(${-currentIndex * width}px)`;
+        if (!slider || slides.length === 0) return;
 
-    // Button states
-    prevBtn.disabled = (currentIndex === 0);
-    nextBtn.disabled = (currentIndex === slides.length - 1);
-    
-    // Debugging: Uncomment the line below to see the width in your console (F12)
-    // console.log("Current Width:", width, "Index:", currentIndex);
-}
+        // Move the slider
+        const width = slider.getBoundingClientRect().width;
+        slider.style.transform = `translateX(${-currentIndex * width}px)`;
+
+        // 2. Loop through all 7 dots and turn the current one Red
+        serviceDots.forEach((dot, index) => {
+            if (index === currentIndex) {
+                dot.classList.add("active");
+            } else {
+                dot.classList.remove("active");
+            }
+        });
+
+        // Handle button states
+        if (prevBtn) prevBtn.disabled = (currentIndex === 0);
+        if (nextBtn) nextBtn.disabled = (currentIndex === slides.length - 1);
+    }
+    serviceDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateUI();
+        });
+    });
 
 // Ensure it runs only after images/styles are fully ready
 window.addEventListener('load', updateUI);
@@ -725,10 +755,10 @@ window.addEventListener('resize', updateUI);
     // Map the index to the heading you want displayed ABOVE that card
     const sectionHeadings = {
         0: "Collaborate Stores",
-        3:  "Drinks & Snacks",
-        9:  "Grocery & Kitchen",
-        12: "Beauty and Personal Care",
-        18: "House Hold Essentials"
+        4:  "Drinks & Snacks",
+        10:  "Grocery & Kitchen",
+        13: "Beauty and Personal Care",
+        19: "House Hold Essentials"
     };
 
     collectionGrid.innerHTML = collections.map((c, i) => {
@@ -840,13 +870,18 @@ if (statsSection) {
     activeCategory = catId;
     const sliderTitle = document.getElementById('slider-title');
     
-    if (sliderTitle) {
-    // Checks if the category is Omi's Sweets or Omi's Food to append the GST notice
-    if (catName === "Omi's Sweets" || catName === "Omi's Food"|| catName === "The Garrison") {
+   if (sliderTitle) {
+    if (catName === "Omi's Sweets" || catName === "Omi's Food" || catName === "The Garrison") {
+        // Appends GST notice for food categories
         sliderTitle.innerText = catName + " (Store GST 5% will be added)";
+    } else if (catName === "Aavi Everyday Store") {
+        // Appends info prompt for Aavi Everyday Store
+        sliderTitle.innerText = catName + " (tap image for more info)";
     } else {
+        // Default behavior for all other categories
         sliderTitle.innerText = catName;
     }
+
     }
 
     // Reset scroll position
@@ -1119,43 +1154,143 @@ window.deliveryBreakdown = { base: baseDelivery, km: kmCharges, night: nightChar
         if (card) openCollection(card.dataset.id, card.dataset.name);
     });
 
-    productGrid.addEventListener('click', (e) => {
+    let currentSlideIndex = 0;
+let activeGallery = [];
+
+// Helper function to update the lightbox content
+function updateSlider() {
+    const container = document.getElementById('slider-images');
+    if (activeGallery.length > 0) {
+        container.innerHTML = `<img src="${activeGallery[currentSlideIndex]}" class="slider-img">`;
+    }
+}
+
+// --- Helper: Render Dynamic Buttons inside Lightbox ---
+function renderLightboxControls(p) {
+    const container = document.getElementById('lightbox-controls-container');
+    if (!container) return;
+
+    const currentVar = p.variants[p.selectedVariant];
+    
+    // Using your specific requested HTML structure
+    container.innerHTML = `
+        <div class="controls">
+            <button class="add-btn ${currentVar.count > 0 ? 'hidden' : ''}" 
+                    data-product-id="${p.id}">Add</button>
+            <div class="qty-controls ${currentVar.count > 0 ? '' : 'hidden'}">
+                <button class="qty-btn" data-product-id="${p.id}" data-change="-1">-</button>
+                <span>${currentVar.count}</span>
+                <button class="qty-btn" data-product-id="${p.id}" data-change="1">+</button>
+            </div>
+        </div>
+    `;
+}
+
+productGrid.addEventListener('click', (e) => {
     const target = e.target;
+
+    // 1. LIGHTBOX TRIGGER (For "aavi" collection products)
+    const card = target.closest('.card');
+    if (card && (target.classList.contains('iimg') || target.tagName === 'H4')) {
+        const p = products.find(prod => prod.id == card.dataset.prodId);
+        
+        if (p && p.cat === 'aavi') {
+            activeGallery = p.gallery || [p.image]; 
+            currentSlideIndex = 0;
+            
+            // Populate Name
+            const lightboxTitle = document.getElementById('lightbox-title');
+            if (lightboxTitle) lightboxTitle.innerText = p.name;
+
+            // Populate Description
+            const lightboxDesc = document.getElementById('lightbox-description');
+            if (lightboxDesc) lightboxDesc.innerText = p.description || "Freshly prepared.";
+            
+            // --- NEW: Render the Dynamic Controls ---
+            renderLightboxControls(p);
+            
+            updateSlider();
+            document.getElementById('lightbox').classList.remove('hidden');
+            return; 
+        }
+    }
+
+    // 2. EXISTING VARIANT LOGIC
     if (target.closest('.variant-btn')) {
         const btn = target.closest('.variant-btn');
         const p = products.find(prod => prod.id == btn.dataset.productId);
         p.selectedVariant = btn.dataset.variant;
         renderProducts(activeCategory);
+        
+        // Update Lightbox if it's currently showing this product
+        if (!document.getElementById('lightbox').classList.contains('hidden')) {
+            renderLightboxControls(p);
+        }
     }
 
+    // 3. EXISTING ADD/QTY LOGIC (Grid & Lightbox)
     if (target.classList.contains('add-btn') || target.classList.contains('qty-btn')) {
         const id = target.dataset.productId;
         const amount = parseInt(target.dataset.change || 1);
         const p = products.find(prod => prod.id == id);
-        const v = p.variants[p.selectedVariant];
         
+        if (!p) return;
+
+        const v = p.variants[p.selectedVariant];
         v.count += amount;
         if (v.count < 0) v.count = 0;
 
         if (amount > 0) {
-            // Add image to the start if increasing
             recentAdditions.unshift(p.image);
         } else if (amount < 0) {
-            // Remove one instance of this image if decreasing
             const index = recentAdditions.indexOf(p.image);
-            if (index > -1) {
-                recentAdditions.splice(index, 1);
-            }
+            if (index > -1) recentAdditions.splice(index, 1);
         }
 
-        // Keep the preview list clean (max 4-5 items)
         if (recentAdditions.length > 5) recentAdditions.pop();
 
         renderProducts(activeCategory);
         updateSidebar();
+
+        // --- NEW: Refresh Lightbox controls if the item changed ---
+        if (!document.getElementById('lightbox').classList.contains('hidden')) {
+            renderLightboxControls(p);
+        }
     }
 });
 
+/** * EXTERNAL LIGHTBOX ADD BUTTON LISTENER
+ * This connects the button inside your lightbox to the logic above
+ */
+const lightboxAddBtn = document.getElementById('lightbox-add-btn');
+if (lightboxAddBtn) {
+    lightboxAddBtn.addEventListener('click', function() {
+        const id = this.dataset.productId;
+        // We find the original 'Add' button in the grid for this product and click it.
+        // This ensures the sidebar, variant selection, and recentAdditions all update correctly.
+        const gridBtn = document.querySelector(`.card[data-prod-id="${id}"] .add-btn`);
+        if (gridBtn) {
+            gridBtn.click();
+            // Optional: Close the lightbox after adding
+            // document.getElementById('lightbox').classList.add('hidden');
+        }
+    });
+}
+// Close Lightbox
+document.querySelector('.close-lightbox').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.add('hidden');
+});
+
+// Slider Navigation
+document.querySelector('.prev-slide').addEventListener('click', () => {
+    currentSlideIndex = (currentSlideIndex > 0) ? currentSlideIndex - 1 : activeGallery.length - 1;
+    updateSlider();
+});
+
+document.querySelector('.next-slide').addEventListener('click', () => {
+    currentSlideIndex = (currentSlideIndex < activeGallery.length - 1) ? currentSlideIndex + 1 : 0;
+    updateSlider();
+});
 
    orderSidebar.addEventListener('click', (e) => {
     if (e.target.classList.contains('side-qty-btn')) {
