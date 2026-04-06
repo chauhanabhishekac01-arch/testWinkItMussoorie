@@ -1,3 +1,4 @@
+const GHPATH = '/testWinkItMussoorie';
 const CACHE_NAME = 'wink-it-v1';
 const ASSETS = [
   '/',
