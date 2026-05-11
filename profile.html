@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Wink It Mussoorie</title>
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root { --primary: #000; --accent: #f3f3f3; --text-main: #333; --text-muted: #666; }
+        body { font-family: -apple-system, sans-serif; background: #fafafa; color: var(--text-main); margin: 0; }
+        
+        /* Top Navigation Header */
+        /* Update the container to push content to the right */
+        .top-nav {
+            display: flex;
+            justify-content: flex-end; /* This pushes the link to the right */
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse; /* Reverses arrow and text for the right side */
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        /* Optional: change hover effect to move right instead of left */
+        .back-link:hover { 
+            transform: translateX(5px); 
+        }
+
+        .back-icon {
+            width: 24px;
+            height: 24px;
+            background: #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .profile-container { padding: 20px; max-width: 600px; margin: auto; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        
+        .form-group { margin-bottom: 15px; }
+        label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 5px; text-transform: uppercase; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+
+        /* Address List Styling */
+        .address-item { 
+            border: 1px solid #eee; padding: 15px; border-radius: 10px; 
+            margin-bottom: 12px; position: relative; transition: 0.2s; cursor: pointer;
+        }
+        .address-item.selected { border: 2px solid var(--primary); background: #fdfdfd; }
+        .addr-badge { font-size: 0.7rem; font-weight: bold; margin-bottom: 5px; display: block; color: var(--text-muted); }
+        .address-item.selected .addr-badge { color: var(--primary); }
+        
+        .addr-controls { margin-top: 10px; display: flex; gap: 10px; }
+        .btn-mini { font-size: 0.8rem; padding: 5px 10px; cursor: pointer; border-radius: 5px; border: 1px solid #ddd; background: white; }
+
+        /* Map Modal */
+        #map-modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; width: 90%; max-width: 500px; padding: 20px; border-radius: 15px; }
+        #map { height: 300px; width: 100%; border-radius: 10px; margin-bottom: 15px; }
+
+        .btn-save { background: var(--primary); color: #fff; padding: 15px; border: none; width: 100%; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 10px; }
+        .btn-add { background: #eee; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <!-- Back Button at the Top -->
+    <header class="top-nav">
+        <a href="index.html" class="back-link">
+            <span class="back-icon">←</span> Back to Store
+        </a>
+    </header>
+
+    <h2>Account Profile</h2>
+    
+    <div id="login-section" class="card">
+        <button onclick="googleLogin()" class="btn-save">Sign in with Google</button>
+    </div>
+
+    <div id="details-section" class="hidden">
+        <div class="card">
+            <label>Full Name</label>
+            <input type="text" id="user-name" placeholder="Full Name">
+            <br><br>
+            <label>Mobile</label>
+            <input type="tel" id="user-phone" placeholder="Mobile Number">
+        </div>
+
+        <div class="card">
+            <label>Saved Locations</label>
+            <div id="address-container"></div>
+            <button onclick="openMapModal()" class="btn-add" style="margin-top:15px;">📍 Add New Location via Map</button>
+        </div>
+
+        <button onclick="saveProfile()" class="btn-save">Save All Changes</button>
+        <p onclick="logout()" style="text-align:center; color:red; cursor:pointer; font-size:0.9rem; margin-top:20px;">Logout</p>
+    </div>
+</div>
+
+<!-- Map Modal remains the same as previous version -->
+<div id="map-modal">
+    <div class="modal-content">
+        <h3>Pin Your Location</h3>
+        <div id="map"></div>
+        <input type="text" id="modal-label" placeholder="Label (e.g. Home, Office)" style="margin-bottom:10px;">
+        <textarea id="modal-addr" placeholder="Specific flat/house number..."></textarea>
+        <button onclick="confirmAddress()" class="btn-save">Confirm Location</button>
+        <button onclick="closeMapModal()" style="background:none; border:none; width:100%; margin-top:10px; cursor:pointer;">Cancel</button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script type="module">
+    // ... Firebase imports and config remain identical ...
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCJISAp7dOoDe48Cb91xeg1XETu6VsOths",
+        authDomain: "planning-with-ai-3ebe6.firebaseapp.com",
+        projectId: "planning-with-ai-3ebe6",
+        storageBucket: "planning-with-ai-3ebe6.firebasestorage.app",
+        messagingSenderId: "600926127192",
+        appId: "1:600926127192:web:c365aab9b9ee788c48362d"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const db = getFirestore();
+    const provider = new GoogleAuthProvider();
+
+    let userAddresses = [];
+    let selectedIndex = 0;
+    let map, marker;
+    let editingIndex = null;
+
+    window.openMapModal = (index = null) => {
+        document.getElementById('map-modal').style.display = 'flex';
+        editingIndex = index;
+
+        if (!map) {
+            map = L.map('map').setView([30.4599, 78.0664], 14);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            marker = L.marker([30.4599, 78.0664], {draggable: true}).addTo(map);
+        }
+
+        if (index !== null) {
+            const addr = userAddresses[index];
+            document.getElementById('modal-label').value = addr.label;
+            document.getElementById('modal-addr').value = addr.text;
+            if(addr.lat) {
+                const pos = [addr.lat, addr.lng];
+                map.setView(pos, 16);
+                marker.setLatLng(pos);
+            }
+        } else {
+            document.getElementById('modal-label').value = "";
+            document.getElementById('modal-addr').value = "";
+        }
+        
+        setTimeout(() => map.invalidateSize(), 200);
+    };
+
+    window.closeMapModal = () => document.getElementById('map-modal').style.display = 'none';
+
+    window.confirmAddress = () => {
+        const latLng = marker.getLatLng();
+        const newAddr = {
+            label: document.getElementById('modal-label').value || "Address",
+            text: document.getElementById('modal-addr').value,
+            lat: latLng.lat,
+            lng: latLng.lng
+        };
+
+        if (editingIndex !== null) {
+            userAddresses[editingIndex] = newAddr;
+        } else {
+            userAddresses.push(newAddr);
+            selectedIndex = userAddresses.length - 1;
+        }
+        
+        renderAddresses();
+        closeMapModal();
+    };
+
+    function renderAddresses() {
+        const container = document.getElementById('address-container');
+        container.innerHTML = '';
+        userAddresses.forEach((addr, i) => {
+            const div = document.createElement('div');
+            div.className = `address-item ${selectedIndex === i ? 'selected' : ''}`;
+            div.onclick = () => { selectedIndex = i; renderAddresses(); };
+            div.innerHTML = `
+                <span class="addr-badge">ADDRESS ${i + 1} ${selectedIndex === i ? '● SELECTED' : ''}</span>
+                <strong>${addr.label}</strong>
+                <p style="margin:5px 0; font-size:0.9rem;">${addr.text}</p>
+                <div class="addr-controls">
+                    <button class="btn-mini" onclick="event.stopPropagation(); openMapModal(${i})">Edit</button>
+                    <button class="btn-mini" style="color:red" onclick="event.stopPropagation(); deleteAddr(${i})">Delete</button>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    window.deleteAddr = (i) => {
+        userAddresses.splice(i, 1);
+        renderAddresses();
+    };
+
+    window.googleLogin = () => signInWithPopup(auth, provider);
+    window.logout = () => signOut(auth);
+
+    window.saveProfile = async () => {
+        const user = auth.currentUser;
+        if (!user) return;
+        const data = {
+            name: document.getElementById('user-name').value,
+            phone: document.getElementById('user-phone').value,
+            addresses: userAddresses,
+            selectedIndex: selectedIndex
+        };
+        await setDoc(doc(db, "users", user.uid), data);
+        alert("Saved successfully!");
+    };
+
+  onAuthStateChanged(auth, (user) => {
+    const nameElement = document.getElementById('first-name-display');
+
+    if (user) {
+        const fullName = user.displayName || "User";
+        const firstName = fullName.split(' ')[0]; 
+
+        // --- ADD THIS LINE ---
+        localStorage.setItem('customerName', firstName); 
+        // ---------------------
+
+        if (nameElement) {
+            nameElement.innerText = firstName;
+        }
+
+        document.getElementById('login-section').classList.add('hidden');
+        document.getElementById('details-section').classList.remove('hidden');
+        loadUserData(user.uid);
+    } else {
+        // --- ADD THIS LINE TO CLEAR ON LOGOUT ---
+        localStorage.removeItem('customerName');
+        // ----------------------------------------
+
+        if (nameElement) {
+            nameElement.innerText = "Guest";
+        }
+        document.getElementById('login-section').classList.remove('hidden');
+        document.getElementById('details-section').classList.add('hidden');
+    }
+});
+
+    async function loadUserData(uid) {
+        const snap = await getDoc(doc(db, "users", uid));
+        if (snap.exists()) {
+            const d = snap.data();
+            document.getElementById('user-name').value = d.name || "";
+            document.getElementById('user-phone').value = d.phone || "";
+            userAddresses = d.addresses || [];
+            selectedIndex = d.selectedIndex || 0;
+            renderAddresses();
+        }
+    }
+</script>
+</body>
+</html>
