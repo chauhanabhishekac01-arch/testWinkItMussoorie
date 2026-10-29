@@ -1,273 +1,728 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Wink It Mussoorie | Mussoorie Delivery Service</title>
-    
-    <meta name="description" content="Wink It Mussoorie provides premium delivery for food and essentials in 30-60 minutes. Serving the community from 8:00 AM to 11:30 PM. Order via WhatsApp!">
 
-    <meta name="keywords" content="Wink It Mussoorie, food delivery Mussoorie, food delivery char dukan, fast delivery Mussoorie, Delivery, Wink It Landour, food delivery landour, landour delivery, mussoorie delivery, mall road delivery, dalai hill delivery, library delivery, food delivery service in Mussoorie, Chacha Ka Dhabba, Landour Bakehouse, Rokby, Savoy, Omi's Mussoorie, Omi's Sweet Shop, Mussoorie Weather, Weather Mussoorie, Mussoorie Distance, Mussoorie Temprature, Temprature Mussoorie, Dehradun To Mussoorie, Airbnb in Mussoorie, Mussoorie Crowd, Kempty Falls, Bhatta Falls, Taxi Mussoorie number, Best Taxi Service in Mussoorie, Taxi Service, Taxi Number Mussoorie, Scoory rental mussoorie, Scooty Rental Number Mussoorie, Mussoorie Taxi Number, Best delivery service in Mussoorie, Delivery near Mussoorie, Delivery new Barloganj, Delivery near Savoy, Delivery near JW Marriot, Delivery Near Woodstock, Mussoorie Guide Book pdf, Misty Haven Mussoorie">
+<meta charset="UTF-8">
 
-    <meta property="og:title" content="Wink It Mussoorie">
-    <meta property="og:description" content="Fastest delivery for food and essentials in Mussoorie. Open 8:00 AM - 11:30 PM.">
-    <meta property="og:image" content="newlogo.jpg">
-    <meta property="og:url" content="https://www.winkitmussoorie.com">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#000000">
-    <link rel="apple-touch-icon" href="newlogo.jpg">
+<title>Wink It Mussoorie | Delivery in the Queen of Hills</title>
 
-    <link rel="icon" type="image/x-icon" href="newlogo.ico">
-    <link rel="stylesheet" href="style.css">
+<meta name="description" content="Wink It Mussoorie delivers food and daily essentials in 30 to 60 minutes. Order on WhatsApp.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+box-sizing:border-box;
+
+padding-top:env(safe-area-inset-top,0px);
+
+padding-bottom:env(safe-area-inset-bottom,0px);
+
+--bg:#e8eeed; --surface:#f6f9f8; --ink:#14201d; --muted:#4d5f5a;
+
+--pine:#ce48ce; --pine-2:#a02ea0; --marigold:#f0a31c; --line:#c5d2cf;
+
+--on-pine:#1c0b1c; --tile:#dbe5e3; --pine-edge:rgba(28,11,28,.5);
+
+--display:'Fraunces',Georgia,serif; --body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+
+color-scheme:light;
+
+}
+
+@media (prefers-color-scheme:dark){
+
+:root:not([data-theme="light"]){
+
+--bg:#0e1816; --surface:#16231f; --ink:#e7f0ee; --muted:#9bb0aa;
+
+--pine:#4a174a; --pine-2:#8a2a8a; --line:#27403a; --tile:#1c2e29; --on-pine:#f6e9f6; --pine-edge:rgba(255,255,255,.4);
+
+color-scheme:dark;
+
+}
+
+}
+
+:root[data-theme="dark"]{
+
+--bg:#0e1816; --surface:#16231f; --ink:#e7f0ee; --muted:#9bb0aa;
+
+--pine:#4a174a; --pine-2:#8a2a8a; --line:#27403a; --tile:#1c2e29; --on-pine:#f6e9f6; --pine-edge:rgba(255,255,255,.4);
+
+color-scheme:dark;
+
+}
+
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+
+*,*::before,*::after{box-sizing:border-box}
+
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+
+a{color:inherit}
+
+:focus-visible{outline:3px solid var(--marigold);outline-offset:3px;border-radius:4px}
+
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0}
+
+
+
+/* top bar */
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--pine);color:var(--on-pine)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--pine);z-index:30}
+
+.bar .wrap{display:flex;align-items:center;gap:1rem;min-height:3.5rem}
+
+.brand{font:800 1.2rem/1 var(--display);text-decoration:none;margin-right:auto}
+
+.bar nav{display:flex;gap:1.25rem;font-weight:500;font-size:.95rem}
+
+.bar nav a{text-decoration:none;opacity:.9}
+
+.bar nav a:hover{opacity:1;text-decoration:underline}
+
+.icon-btn{background:transparent;border:1px solid var(--pine-edge);color:inherit;border-radius:999px;padding:.35rem .8rem;font:500 .85rem var(--body);cursor:pointer}
+
+.icon-btn:hover{border-color:var(--marigold)}
+
+@media(max-width:640px){.bar nav{display:none}}
+
+
+
+/* hero */
+
+.hero{background:var(--pine);color:var(--on-pine);position:relative;overflow:hidden;padding:4.5rem 0 0}
+
+.hero h1{font-size:clamp(2.8rem,9vw,6.2rem);font-weight:800;letter-spacing:-.02em;max-width:11ch}
+
+.hero p.lede{font-size:1.15rem;max-width:34rem;margin:1.25rem 0 2rem;opacity:.92}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;padding-bottom:7rem;position:relative;z-index:2}
+
+.btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent}
+
+.btn.primary{background:var(--marigold);color:#1a1200}
+
+.btn.primary:hover{background:#ffb83a}
+
+.btn.ghost{border-color:var(--pine-edge);color:var(--on-pine)}
+
+.btn.ghost:hover{border-color:var(--marigold)}
+
+.ridge{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(110px,22vw,230px);display:block}
+
+.ridge .r1{fill:var(--pine-2);opacity:.55}
+
+.ridge .r2{fill:var(--pine-2)}
+
+.ridge .r3{fill:var(--bg)}
+
+
+
+/* sections */
+
+section{padding:3.5rem 0}
+
+.sec-title{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.5rem}
+
+.sec-sub{color:var(--muted);max-width:38rem;margin:0 0 2rem}
+
+
+
+/* search + catalogue */
+
+.search{display:flex;gap:.5rem;max-width:30rem;margin-bottom:2rem}
+
+.search input{flex:1;font:inherit;padding:.8rem 1rem;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+
+.group{margin-bottom:2.5rem}
+
+.group h3{font-size:1.35rem;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--line)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.9rem}
+
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;padding:1rem;background:var(--tile);border-radius:14px;text-decoration:none;min-height:8.5rem;border:1px solid transparent;transition:border-color .15s,transform .15s}
+
+.tile:hover{border-color:var(--marigold);transform:translateY(-2px)}
+
+.tile .em{font-size:2rem;line-height:1}
+
+.tile .nm{font-weight:600;line-height:1.25}
+
+.empty{display:none;padding:1.5rem;border:1px dashed var(--line);border-radius:14px;color:var(--muted)}
+
+.empty.show{display:block}
+
+
+
+/* services */
+
+.services{background:var(--surface);border-block:1px solid var(--line)}
+
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem}
+
+.svc div{padding-left:1rem;border-left:4px solid var(--marigold)}
+
+.svc h3{font-size:1.2rem;margin-bottom:.35rem}
+
+.svc p{margin:0;color:var(--muted)}
+
+.guide{margin-top:2rem;display:inline-block}
+
+
+
+/* about */
+
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:center}
+
+.about p{max-width:38rem}
+
+.facts{display:grid;gap:1rem}
+
+.fact{background:var(--pine);color:var(--on-pine);border-radius:16px;padding:1.2rem 1.4rem;display:flex;align-items:baseline;gap:.9rem}
+
+.fact b{font:800 2.4rem/1 var(--display);color:inherit}
+
+@media(max-width:760px){.about{grid-template-columns:1fr;gap:1.5rem}}
+
+
+
+/* community */
+
+.community{background:var(--pine);color:var(--on-pine)}
+
+.community p{max-width:40rem;font-size:1.1rem}
+
+.community small{opacity:.75}
+
+
+
+/* faq */
+
+details{border-bottom:1px solid var(--line)}
+
+summary{cursor:pointer;list-style:none;padding:1rem 2rem 1rem 0;font-weight:600;position:relative}
+
+summary::-webkit-details-marker{display:none}
+
+summary::after{content:"+";position:absolute;right:.25rem;top:.85rem;font-size:1.4rem;color:var(--pine-2);transition:transform .2s}
+
+details[open] summary::after{transform:rotate(45deg)}
+
+details .ans{padding:0 0 1.1rem;color:var(--muted);max-width:44rem}
+
+details .ans b{color:var(--ink)}
+
+.faq{max-width:52rem}
+
+
+
+/* reviews */
+
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+
+.rc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.2rem}
+
+.rc .who{display:flex;align-items:center;gap:.7rem;margin-bottom:.6rem}
+
+.av{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--pine-2);color:#fff;display:grid;place-items:center;font-weight:600}
+
+.rc .nm{font-weight:600;line-height:1.2}
+
+.rc .st{color:var(--marigold);letter-spacing:.1em}
+
+.rc .st span{color:var(--muted);letter-spacing:0;font-size:.85rem;margin-left:.4rem}
+
+.rc p{margin:.4rem 0}
+
+.rc .loc{color:var(--muted);font-size:.9rem}
+
+
+
+/* footer */
+
+footer{background:var(--pine);color:var(--on-pine);padding:3rem 0 2rem}
+
+.foot{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between}
+
+footer address{font-style:normal;line-height:1.7}
+
+footer a{color:inherit;text-decoration:underline}
+
+.credit{margin-top:2rem;opacity:.7;font-size:.9rem}
+
+/* phones */
+
+@media(max-width:640px){
+
+.wrap{width:calc(100% - 2rem)}
+
+.bar .wrap{min-height:3rem;gap:.5rem}
+
+.brand{font-size:1.05rem}
+
+.icon-btn{padding:.3rem .65rem;font-size:.8rem}
+
+.hero{padding-top:2.5rem}
+
+.hero h1{font-size:clamp(2.4rem,13vw,3.4rem)}
+
+.hero p.lede{font-size:1rem;margin:1rem 0 1.5rem}
+
+.cta-row{padding-bottom:5rem;gap:.6rem}
+
+.btn{padding:.7rem 1.1rem;font-size:.95rem}
+
+.cta-row .btn{flex:1 1 100%;text-align:center}
+
+section{padding:2.25rem 0}
+
+.sec-sub{margin-bottom:1.25rem;font-size:.95rem}
+
+.search{max-width:none;margin-bottom:1.25rem}
+
+.search input{padding:.7rem .9rem}
+
+.group{margin-bottom:1.5rem}
+
+.group h3{font-size:1.1rem;margin-bottom:.7rem}
+
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+
+.tile{flex-direction:row;align-items:center;gap:.5rem;min-height:0;padding:.65rem .7rem;border-radius:12px}
+
+.tile .em{font-size:1.45rem;flex:none}
+
+.tile .nm{font-size:.85rem;line-height:1.2;overflow-wrap:anywhere}
+
+.svc{gap:1rem}
+
+.svc h3{font-size:1.05rem}
+
+.fact{padding:.9rem 1.1rem}
+
+.fact b{font-size:1.9rem}
+
+.community p{font-size:1rem}
+
+summary{padding:.85rem 1.75rem .85rem 0;font-size:.95rem}
+
+.reviews{grid-template-columns:1fr;gap:.75rem}
+
+.rc{padding:1rem}
+
+.guide{display:block;text-align:center}
+
+.foot{flex-direction:column;gap:1.25rem}
+
+}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+
 </head>
+
 <body>
 
 
-    
-    <div id="splash-screen">
-        <video id="intro-video" autoplay muted playsinline>
-            <source src="intro.mp4" type="video/mp4">
-            .
-        </video>
-    </div>
-    <div id="cart-popup" class="cart-popup hidden">
-        <div id="popup-images-container" class="popup-images"></div>
-        <p><span id="popup-count">0</span> Item in cart</p>
-    </div>
 
-    <header>
-        <a href="https://www.instagram.com/wink_it_mussoorie" id="logo-link"><h2 class="logo">Wink It<br>Mussoorie</h2></a>
-        
-        <div class="search-container">
-            <input type="text" id="product-search" placeholder="Search product...">
-            <span id="clear-search" class="clear-btn hidden">✕</span>
-            <button class="search-btn" id="search-btn">🔍</button>
-            <div id="search-suggestions"></div>
-        </div>
+<header class="bar">
 
-        <div class="nav-links">
-                <!-- Request Dropdown Wrapper -->
-                <div class="request-dropdown">
-                    <a id="collectiona" href="#" class="dropdown-trigger">
-                        <h2>Request ▾</h2>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="https://api.whatsapp.com/send?phone=917983427187&text=Hi,%20I'd%20like%20to%20request%20a%20Porter%20service.">Porter</a>
-                        <a href="https://api.whatsapp.com/send?phone=917983427187&text=Hi,%20I'd%20like%20to%20Request%20items.">Request items</a>
-                        <a href="https://api.whatsapp.com/send?phone=917983427187&text=Hi,%20I'd%20like%20to%20arrange%20a%20Delivery%20for%20someone%20else.">Delivery for someone else</a>
-                        <a href="https://api.whatsapp.com/send?phone=917983427187&text=Hi,%20I'd%20like%20to%20request%20a%20Hospital%20Drop.">Hospital Drop</a>
-                        <a href="https://api.whatsapp.com/send?phone=917983427187&text=Hi,%20I'd%20like%20to%20request%20Option%205.">Option 5</a>
-                    </div>
-                </div>
+<div class="wrap">
 
-                <div class="order-trigger" id="cart-trigger">
-                    Cart: <span id="cart-count">0</span>
-                </div>
-            </div>
-    </header>
-    <div class="top-bar">
-        <div class="online-status">
-            <div class="dot-container">
-                <div class="dot"></div>
-                <div class="pulse"></div>
-            </div>
-            <span class="status-text">
-                <span id="online-count">1</span> online now
-            </span>
-        </div>
+<a class="brand" href="#top">Wink It Mussoorie</a>
 
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label>
-        </div>
-    </div>
-    <div class="ourservice"><h1 class="main-title">Our Services</h1></div>
-    
-    <div class="scmain">
-    <div class="slider-container">
-        <a href="https://api.whatsapp.com/send?phone=917983427187&text=Hi,%20I'd%20like%20to%20request%20a%20service."> 
-            <div class="slider-wrapper" id="slider">
-                <img src="service3.jpg" alt="Slide 1">
-                <img src="service1.jpg" alt="Slide 2">
-                <img src="service2.jpg" alt="Slide 3">
-                <img src="service4.jpg" alt="Slide 4">
-                <img src="service5.jpg" alt="Slide 5">
-                <img src="service6.jpg" alt="Slide 6">
-                <img src="service7.jpg" alt="Slide 7">
-                <img src="service8.jpg" alt="Slide 7">
-            </div>
-        </a>
-        <button class="btn left" id="prevBtn" onclick="moveSlide(-1)"></button>
-        <button class="btn right" id="nextBtn" onclick="moveSlide(1)"></button>
-    </div>
+<nav aria-label="Primary">
 
-    <div class="dota-container" id="dots">
-        <span class="dota active"></span>
-        <span class="dota"></span>
-        <span class="dota"></span>
-        <span class="dota"></span>
-        <span class="dota"></span>
-        <span class="dota"></span>
-        <span class="dota"></span>
-        <span class="dota"></span>
-    </div>
+<a href="#shop">Shop</a>
+
+<a href="#services">Services</a>
+
+<a href="#about">About</a>
+
+<a href="#faq">FAQ</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+<button class="icon-btn" id="theme" type="button" aria-label="Switch colour theme">Dark mode</button>
+
 </div>
-<a class="download" href="https://drive.google.com/file/d/1XvTvtakRcwk-4GMVJizAHBrn1Y2eF7UC/view?usp=sharing" download="Mussoorie Guide Book.pdf">
-   Download Mussoorie Guide Book
-</a>
 
-<div id="pwa-install-container" style="display: none; text-align: center; padding: 10px;">
-    <button id="pwa-install-btn" style="background-color: #000; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">
-        📲 Install Wink It App
-    </button>
+</header>
+
+
+
+<main id="top">
+
+<div class="hero">
+
+<div class="wrap">
+
+<h1>Mussoorie, delivered.</h1>
+
+<p class="lede">Food, late-night snacks and daily essentials, at your door in 30 to 60 minutes. Order on WhatsApp, and if something is out of stock we call you with the best alternative.</p>
+
+<div class="cta-row">
+
+<a class="btn primary" href="https://api.whatsapp.com/send?phone=917983427187&amp;text=Hi,%20I'd%20like%20to%20place%20an%20order.">Order on WhatsApp</a>
+
+<a class="btn ghost" href="https://api.whatsapp.com/send?phone=917983427187&amp;text=Hi,%20I'd%20like%20to%20request%20a%20service.">Request something else</a>
+
+</div>
+
+</div>
+
+<svg class="ridge" viewBox="0 0 1440 230" preserveAspectRatio="none" aria-hidden="true">
+
+<path class="r1" d="M0 120 L120 70 L230 105 L360 40 L470 95 L600 55 L720 100 L860 35 L980 90 L1110 50 L1240 95 L1350 60 L1440 85 L1440 230 L0 230Z"/>
+
+<path class="r2" d="M0 160 L90 120 L200 150 L330 105 L450 145 L580 110 L700 150 L840 100 L970 140 L1100 108 L1230 145 L1340 118 L1440 140 L1440 230 L0 230Z"/>
+
+<path class="r3" d="M0 200 L110 175 L240 195 L380 165 L520 192 L650 170 L790 196 L930 168 L1070 192 L1200 172 L1330 194 L1440 180 L1440 230 L0 230Z"/>
+
+</svg>
+
 </div>
 
 
 
-    
-    
+<section id="shop">
 
-    <main id="collection-view">
-        <div class="collection-grid" id="collection-grid"></div>
-    </main>
+<div class="wrap">
 
-    <div id="product-slider">
-        <div class="slider-header">
-            <h2 id="slider-title">Collection</h2>
-            <button class="back-btn" id="close-slider">✕</button>
-        </div>
-        <div id="pslidandp">
-            <div id="pgroupslider">ajlfh</div>
-            <div id="product-grid">
-            </div>
-        </div>
-    </div>
+<h2 class="sec-title">What do you need?</h2>
 
-    <div id="orderSidebar">
-    <button class="close-btn" id="close-sidebar">×</button>
-    <h2>Checkout</h2>
-    <div id="sidebar-content"></div>
-    <div id="sidebar-footer">
-        <hr>
-        <p>Items Total: Rs <span id="subtotal-val">0</span></p>
-        <p id="tax-row" style="display: none;">Store GST (5%): Rs <span id="tax-val">0</span></p>
-        
-        <p id="bag-row" style="display: none;">Paper Bag: Rs <span id="bag-val">0</span></p>
-        
-        <p>Delivery Charges: Rs <span id="delivery-val">0</span></p>
-        <h3>Total Amount: Rs <span id="total-price">0</span></h3>
-        
-        <div class="address-section">
-            <input type="text" id="cust-name" placeholder="Your Name">
-            <label class="woodstock-checkbox" style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 8px; white-space: nowrap; padding-bottom: 8px; margin-top: 20px; border-bottom: 1px solid #ccc;">
-                Woodstock Staff 26-27
-                <input type="checkbox" id="woodstock-student" style="margin-left: auto;">
-            </label>
+<p class="sec-sub">Pick a category and we’ll open WhatsApp with it filled in. Tell us what you want and we’ll confirm the price before we leave.</p>
 
-            <label class="itm-checkbox" style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 8px; white-space: nowrap; padding-bottom: 8px; border-bottom: 1px solid #ccc;">
-                ITM Cantt
-                <input type="checkbox" id="itm-student" style="padding: 0;">
-            </label>
-            <button id="location-btn" class="loc-btn">📍 Share Current Location</button>
-            
-            <textarea id="cust-address" rows="3" placeholder="Use 'Share Current Location'" readonly></textarea>
-            <span id="location-display"></span>
-        </div>
-        <button class="checkout-btn" id="checkout-whatsapp">
-            <span class="lock-icon">🔒</span> Order via WhatsApp &#10140;
-        </button>
-    </div>
-</div>
-    <div class="stats-container">
-        <div class="stat-group">
-            <span class="counter" data-target="250">0+</span>
-            <span class="label">Orders</span>
-        </div>
-        <div class="stat-group">
-            <span class="counter" data-target="500">0+</span>
-            <span class="label">Products</span>
-        </div>
-        <div class="stat-group">
-            <span class="counter" data-target="2">0+</span>
-            <span class="label">Delivery<br>Partners</span>
-        </div>
-    </div>
+<form class="search" role="search" onsubmit="return false">
 
-    
-    <div id="abt" class="about">
-        <h1 class="heading">About Us</h1>
-        <div class="abox">
-            <div class="atext">
-                <h1>Wink It Mussoorie</h1>
-                <p>Looking for Blinkit in Mussoorie? While big-city apps stop at the foothills, <b>Wink It Mussoorie </b>is here to serve the "Queen of Hills." Founded in 2026, we are Mussoorie’s dedicated delivery service for food, late-night snacks, and daily essentials.
-                    Whether you’re a hotel guest craving munchies or a resident needing urgent supplies, our team delivers within <b>30 to 60 minutes</b>. We operate from 9:00 AM to 11:00 PM, ensuring you never have to go without. Plus, with our personalized service, if your choice is out of stock, we’ll call you personally to suggest the best alternatives.</p>
-                <a href="tel:7983427187"><button class="contact-btn">Contact</button></a>
-            </div>
-            <div class="aimg">
-                <img src="newlogo.jpg" alt="Logo">
-            </div>
-        </div>
-    </div>
+<input type="search" id="q" placeholder="Search categories, e.g. dairy, cake, books" aria-label="Search categories" autocomplete="off">
 
-    <div class="ourss"><h1 class="main-title">Community Services</h1></div>
-    <div><h1 class="mainp">At the heart of our work is a commitment to our local community and a shared responsibility to protect our environment, fully supporting the goals of SDG 15.<br>---09/07/2025---</h1></div>
+</form>
 
-<div class="ss">
-    <div class="sss">
-            <div class="ssw" id="">
-                <img src="cservice.jpg" alt="">
-            </div>
-        </a>
-    </div>
+<div id="catalogue"></div>
+
+<p class="empty" id="empty">No category matches that. Request it and we’ll find it for you.
+
+<a href="https://api.whatsapp.com/send?phone=917983427187&amp;text=Hi,%20I'd%20like%20to%20request%20a%20service.">Send a request</a></p>
+
 </div>
 
-    <div class="faq-card">
-        <h2>Frequently asked Questions</h2>
-        <div id="faq-wrapper"></div>
-    </div>
-    <h1 class="heading testi">Testimonials &gt;</h1>
-    <div class="rbox" id="slider-container">
-        <div class="rwrap" id="review-inner"></div>
-    </div>
+</section>
 
-    
-    
 
-    <div class="cbox">
-        <div class="cwrap">
-            <img class="cimg" src="newlogo.jpg" alt="Logo Footer">
-            <div class="ctext">
-                <h1>Address</h1>
-                <h3>Nan Para House</h3>
-                <h3>Mussoorie</h3>
-                <h3>Uttarakhand-248179</h3>
-                <h3>Contact: <a href="tel:7983427187">7983427187</a></h3>
-                <div class="acc">
-                    <a href="https://www.instagram.com/winkitmussoorie"><img title="Instagram" src="insta.jpg" alt="Instagram"></a>
-                </div>
-            </div>
-            <a href="https://maps.app.goo.gl/6aGjydyM8Kf6ZvdJ6" id="map-link"><img class="cimg" src="map.jpg" alt="Map"></a>
-        </div>
-    </div>
-    <footer class="footerf"><h1>Made with ❤️ by Ankur</h1><a href="https://www.instagram.com/ankurchauhan129"><img class="mwli" src="insta.jpg" alt=""></a></footer>
 
-    <div id="lightbox" class="lightbox hidden">
-    <div class="lightbox-content">
-        <span class="close-lightbox">&times;</span>
-        <h2 id="lightbox-title"></h2>
-        
-        <div class="slider-container">
-            <button class="prev-slide">❮</button>
-            <div id="slider-images"></div>
-            <button class="next-slide">❯</button>
-        </div>
-        
-        <p id="lightbox-description"></p>
+<section id="services" class="services">
 
-      
+<div class="wrap">
 
-    <script src="script.js"></script>
+<h2 class="sec-title">Our services</h2>
+
+<p class="sec-sub">Delivery is the core. These are the other things people ask us for.</p>
+
+<div class="svc">
+
+<div><h3>Local delivery</h3><p>Groceries, food and essentials across Mussoorie, in 30 to 60 minutes.</p></div>
+
+<div><h3>Buy from a shop you choose</h3><p>Name the shop. We buy or collect your order there and bring it to your door.</p></div>
+
+<div><h3>Errands</h3><p>Post, pick-up and drop, and assistance, for a small fee. Larger errands up to Dehradun, priced case by case.</p></div>
+
+<div><h3>Taxi and scooty</h3><p>We connect you with hand-picked, reliable taxi and scooty partners.</p></div>
+
+<div><h3>Homestays and hotels</h3><p>Book a partner hotel or homestay through us and get 5% off.</p></div>
+
+</div>
+
+<a class="btn primary guide" href="https://drive.google.com/file/d/1XvTvtakRcwk-4GMVJizAHBrn1Y2eF7UC/view?usp=sharing">Download the Mussoorie Guide Book</a>
+
+</div>
+
+</section>
+
+
+
+<section id="about">
+
+<div class="wrap about">
+
+<div>
+
+<h2 class="sec-title">About Wink It Mussoorie</h2>
+
+<p>Big-city quick-commerce apps stop at the foothills. Wink It Mussoorie was founded in 2026 to serve the Queen of Hills with food, late-night snacks and daily essentials.</p>
+
+<p>Whether you’re a hotel guest craving munchies or a resident who needs something urgently, our team delivers within <b>30 to 60 minutes</b>. If your choice is out of stock, we call you personally to suggest the best alternative.</p>
+
+<a class="btn primary" href="tel:7983427187">Call 7983427187</a>
+
+</div>
+
+<div class="facts">
+
+<div class="fact"><b>250+</b><span>Orders delivered</span></div>
+
+<div class="fact"><b>500+</b><span>Products</span></div>
+
+<div class="fact"><b>2</b><span>Delivery partners</span></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="community">
+
+<div class="wrap">
+
+<h2 class="sec-title">Community services</h2>
+
+<p>At the heart of our work is a commitment to our local community and a shared responsibility to protect our environment, supporting the goals of SDG 15.</p>
+
+<small>09/07/2025</small>
+
+</div>
+
+</section>
+
+
+
+<section id="faq">
+
+<div class="wrap faq">
+
+<h2 class="sec-title">Questions people ask</h2>
+
+<details><summary>I can’t find the product I want.</summary><div class="ans">If it isn’t in our catalogue, send us a request and we’ll look for it.</div></details>
+
+<details><summary>Can I choose the shop my products are bought from?</summary><div class="ans">Yes. We buy the products, or pick up your purchase from the shop you name, and bring them to your door.</div></details>
+
+<details><summary>Do you sell these products?</summary><div class="ans">No. We don’t sell products as of now. We’re your delivery partner.</div></details>
+
+<details><summary>Can you run an errand for me?</summary><div class="ans">Possibly. Post, pick-up and drop, and assistance can be done for a small fee. We can run major errands up to Dehradun, but the price may vary.</div></details>
+
+<details><summary>Why should I book a homestay through you?</summary><div class="ans">We have tie-ups with hotels and homestays, and customers who book through us get a 5% discount.</div></details>
+
+<details><summary>Will you charge for the carry bag?</summary><div class="ans">If your order is delivered in our company carry bag, Rs 10 is charged. A normal carry bag is free.</div></details>
+
+<details><summary>Are taxi and scooty services available?</summary><div class="ans">Yes. We only connect you with reliable, high-quality partners we’ve hand-picked for value and a warm welcome.</div></details>
+
+<details><summary>What other services do you provide?</summary><div class="ans">Ask before you assume. The Request button is there for you to explore.</div></details>
+
+<details><summary>Who are your collaborating stores?</summary><div class="ans">We work with a wide range of partners. Two of the best known are Omi’s Sweets in Landour and Chacha ka Dhabba in Kulri.</div></details>
+
+<details><summary>Will the food look exactly like the pictures?</summary><div class="ans">The images give a general view of the product. We don’t promise to deliver exactly what is shown.</div></details>
+
+<details><summary>How does ordering fruit and vegetables work?</summary><div class="ans">These rules apply to the Fresh category.<br><b>1. Inspect:</b> check the quality when the order arrives.<br><b>2. Confirm:</b> our delivery partner waits for your confirmation before finalising the drop-off.<br><b>3. No returns after delivery:</b> accepting the order is a final sale, with no refunds or returns once delivery is finalised.<br>Prices of fruit and vegetables may differ from those listed.</div></details>
+
+<details><summary>Where is the Fine Dine Deluxe restaurant?</summary><div class="ans">Fine Dine Deluxe isn’t a restaurant. It’s an experience where we deliver meals from restaurants with good reviews for the dish you pick.</div></details>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<div class="wrap">
+
+<h2 class="sec-title">What customers say</h2>
+
+<p class="sec-sub">Feedback as received, including the late orders.</p>
+
+<div class="reviews">
+
+<article class="rc"><div class="who"><div class="av">SV</div><div class="nm">Sumaira Vishanathan</div></div><div class="st" aria-label="5 out of 5">★★★★★<span>5/5</span></div><p>The delivery person was polite and followed all instructions.</p><div class="loc">English Country, Kaflani · 4 months ago</div></article>
+
+<article class="rc"><div class="who"><div class="av">AN</div><div class="nm">Alok Nath</div></div><div class="st" aria-label="4 out of 5">★★★★☆<span>4/5</span></div><p>Our delivery was 15 mins late but the app made sure we were always updated.</p><div class="loc">GNFC School, Mussoorie · 5 months ago</div></article>
+
+<article class="rc"><div class="who"><div class="av">RA</div><div class="nm">Ramsharan Aggarwal</div></div><div class="st" aria-label="4 out of 5">★★★★☆<span>4/5</span></div><p>Very nice service for hilly areas.</p><div class="loc">Savoy Welcome Hotels, Mussoorie · 5 months ago</div></article>
+
+<article class="rc"><div class="who"><div class="av">AG</div><div class="nm">Anjali Negi</div></div><div class="st" aria-label="3 out of 5">★★★☆☆<span>3/5</span></div><p>Please find routes to beat the traffic and be faster.</p><div class="loc">Natur’s Lap, Mussoorie · 4 months ago</div></article>
+
+<article class="rc"><div class="who"><div class="av">M</div><div class="nm">Martin</div></div><div class="st" aria-label="5 out of 5">★★★★★<span>5/5</span></div><p>The order was half an hour late but the quality and service were definitely worth the wait.</p><div class="loc">Woodstock School, Tehri Road, Landour · 4 months ago</div></article>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer id="contact">
+
+<div class="wrap">
+
+<div class="foot">
+
+<address>
+
+<h2 style="font-size:1.5rem;margin-bottom:.6rem">Find us</h2>
+
+Nan Para House<br>Mussoorie<br>Uttarakhand 248179<br>
+
+<a href="tel:7983427187">7983427187</a>
+
+</address>
+
+<div>
+
+<p style="margin:0 0 .4rem"><a href="https://maps.app.goo.gl/6aGjydyM8Kf6ZvdJ6">Open in Maps</a></p>
+
+<p style="margin:0 0 .4rem"><a href="https://www.instagram.com/winkitmussoorie">Wink It on Instagram</a></p>
+
+<p style="margin:0"><a href="https://api.whatsapp.com/send?phone=917983427187&amp;text=Hi,%20I'd%20like%20to%20request%20a%20service.">Request a service</a></p>
+
+</div>
+
+</div>
+
+<p class="credit">Made with ❤️ by Ankur · <a href="https://www.instagram.com/ankurchauhan129">Instagram</a></p>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+(function(){
+
+var WA='https://api.whatsapp.com/send?phone=917983427187&text=';
+
+var data=[
+
+['Diwali Special',[['Diwali Special','🪔'],['Dry Fruits','🥜']]],
+
+['Latest additions',[['Games and Gym','🏋️'],['Discounted Items','🏷️'],['Latest Arrivals','✨']]],
+
+['Collaborating stores',[['Cake Shop','🎂'],['Fine Dine Deluxe','🍽️'],['Nutritional Food Supplement','💪'],['Swad South Indian','🥘'],['Pahado Ka','⛰️'],['Omi’s Sweets','🍬'],['Omi’s Food','🍛'],['Gift Store','🎁']]],
+
+['Drinks and snacks',[['Drinks and Juices','🧃'],['Chips and Namkeens','🥔'],['Bakery and Biscuits','🍪'],['Sweet and Chocolates','🍫'],['Instant Food and Noodles','🍜'],['Candies','🍭']]],
+
+['Grocery and kitchen',[['Fresh','🥬'],['Aa, Dal, and Rice','🌾'],['Dairy, Bread, and Milk','🥛'],['Masalas and Oils','🌶️'],['Spreads and Ketchup','🍯']]],
+
+['Beauty and personal care',[['Baby Care','🍼'],['Female Wellness','🌸'],['Hair','💇'],['Bath and Body','🧴'],['Face','🧼'],['General','🧻']]],
+
+['Household essentials',[['Cleaners and Fresheners','🧽'],['Second Hand Books','📚'],['Others','📦']]]
+
+];
+
+var root=document.getElementById('catalogue'), empty=document.getElementById('empty'), q=document.getElementById('q');
+
+data.forEach(function(g){
+
+var sec=document.createElement('div'); sec.className='group';
+
+var h=document.createElement('h3'); h.textContent=g[0]; sec.appendChild(h);
+
+var grid=document.createElement('div'); grid.className='grid';
+
+g[1].forEach(function(it){
+
+var a=document.createElement('a'); a.className='tile'; a.dataset.name=it[0].toLowerCase();
+
+a.href=WA+encodeURIComponent('Hi, I\'d like to order from: '+it[0]);
+
+a.innerHTML='<span class="em" aria-hidden="true">'+it[1]+'</span><span class="nm"></span>';
+
+a.querySelector('.nm').textContent=it[0];
+
+grid.appendChild(a);
+
+});
+
+sec.appendChild(grid); root.appendChild(sec);
+
+});
+
+q.addEventListener('input',function(){
+
+var v=q.value.trim().toLowerCase(), shown=0;
+
+root.querySelectorAll('.group').forEach(function(sec){
+
+var n=0;
+
+sec.querySelectorAll('.tile').forEach(function(t){
+
+var ok=!v||t.dataset.name.indexOf(v)>-1||sec.firstChild.textContent.toLowerCase().indexOf(v)>-1;
+
+t.style.display=ok?'':'none'; if(ok)n++;
+
+});
+
+sec.style.display=n?'':'none'; shown+=n;
+
+});
+
+empty.classList.toggle('show',shown===0);
+
+});
+
+
+
+var btn=document.getElementById('theme'), rootEl=document.documentElement;
+
+function isDark(){
+
+var t=rootEl.getAttribute('data-theme');
+
+return t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+}
+
+function label(){btn.textContent=isDark()?'Light mode':'Dark mode';}
+
+try{var s=localStorage.getItem('winkit-theme'); if(s)rootEl.setAttribute('data-theme',s);}catch(e){}
+
+label();
+
+btn.addEventListener('click',function(){
+
+var next=isDark()?'light':'dark';
+
+rootEl.setAttribute('data-theme',next);
+
+try{localStorage.setItem('winkit-theme',next);}catch(e){}
+
+label();
+
+});
+
+})();
+
+</script>
+
 </body>
 
 </html>
+
+
+
